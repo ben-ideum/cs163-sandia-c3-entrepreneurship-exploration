@@ -1,0 +1,87 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Qml/General/Sidebar.qml</file>
+        <file>Qml/main.qml</file>
+        <file>Qml/Style.qml</file>
+        <file>Qml/qmldir</file>
+        <file>Qml/General/SidebarButton.qml</file>
+        <file>Qml/General/PageDefault.qml</file>
+        <file>Qml/General/PageHeader.qml</file>
+        <file>Qml/General/PageBody.qml</file>
+        <file>Qml/General/ElementIcon.qml</file>
+        <file>Qml/General/FadeState.qml</file>
+        <file>Qml/Section_C3/C3Landing.qml</file>
+        <file>assets/background.png</file>
+        <file>assets/fonts/Avenir/AvenirLTStd-Black.otf</file>
+        <file>assets/fonts/Avenir/AvenirLTStd-BlackOblique.otf</file>
+        <file>assets/fonts/Avenir/AvenirLTStd-Book.otf</file>
+        <file>assets/fonts/Avenir/AvenirLTStd-BookOblique.otf</file>
+        <file>assets/fonts/Avenir/AvenirLTStd-Heavy.otf</file>
+        <file>assets/fonts/Avenir/AvenirLTStd-HeavyOblique.otf</file>
+        <file>assets/fonts/Avenir/AvenirLTStd-Light.otf</file>
+        <file>assets/fonts/Avenir/AvenirLTStd-LightOblique.otf</file>
+        <file>assets/fonts/Avenir/AvenirLTStd-Medium.otf</file>
+        <file>assets/fonts/Avenir/AvenirLTStd-MediumOblique.otf</file>
+        <file>assets/fonts/Avenir/AvenirLTStd-Oblique.otf</file>
+        <file>assets/fonts/Avenir/AvenirLTStd-Roman.otf</file>
+        <file>assets/fonts/Gotham/Gotham-Bold 2.otf</file>
+        <file>assets/fonts/Gotham/Gotham-Bold 3.otf</file>
+        <file>assets/fonts/Gotham/Gotham-Bold 4.otf</file>
+        <file>assets/fonts/Gotham/Gotham-Bold 5.otf</file>
+        <file>assets/fonts/Gotham/Gotham-Bold 6.otf</file>
+        <file>assets/fonts/Gotham/Gotham-Bold 7.otf</file>
+        <file>assets/fonts/Gotham/Gotham-Bold 8.otf</file>
+        <file>assets/fonts/Gotham/Gotham-Bold 9.otf</file>
+        <file>assets/fonts/Gotham/Gotham-Bold.otf</file>
+        <file>assets/fonts/Gotham/Gotham-BoldItalic.otf</file>
+        <file>assets/fonts/Gotham/Gotham-Book 2.otf</file>
+        <file>assets/fonts/Gotham/Gotham-Book 3.otf</file>
+        <file>assets/fonts/Gotham/Gotham-Book 4.otf</file>
+        <file>assets/fonts/Gotham/Gotham-Book 5.otf</file>
+        <file>assets/fonts/Gotham/Gotham-Book 6.otf</file>
+        <file>assets/fonts/Gotham/Gotham-Book 7.otf</file>
+        <file>assets/fonts/Gotham/Gotham-Book 8.otf</file>
+        <file>assets/fonts/Gotham/Gotham-Book.otf</file>
+        <file>assets/fonts/Gotham/Gotham-BookItalic 2.otf</file>
+        <file>assets/fonts/Gotham/Gotham-BookItalic 3.otf</file>
+        <file>assets/fonts/Gotham/Gotham-BookItalic.otf</file>
+        <file>assets/fonts/Gotham/Gotham-Light 2.otf</file>
+        <file>assets/fonts/Gotham/Gotham-Light 3.otf</file>
+        <file>assets/fonts/Gotham/Gotham-Light copy.otf</file>
+        <file>assets/fonts/Gotham/Gotham-Light.otf</file>
+        <file>assets/fonts/Gotham/Gotham-LightItalic 2.otf</file>
+        <file>assets/fonts/Gotham/Gotham-LightItalic.otf</file>
+        <file>assets/fonts/Gotham/Gotham-Medium 2.otf</file>
+        <file>assets/fonts/Gotham/Gotham-Medium 3.otf</file>
+        <file>assets/fonts/Gotham/Gotham-Medium 4.otf</file>
+        <file>assets/fonts/Gotham/Gotham-Medium.otf</file>
+        <file>assets/fonts/Gotham/Gotham-MediumItalic 2.otf</file>
+        <file>assets/fonts/Gotham/Gotham-MediumItalic.otf</file>
+        <file>Qml/General/AppText.qml</file>
+        <file>assets/c3_icon.png</file>
+        <file>Qml/General/SectionDefault.qml</file>
+        <file>Qml/General/SectionBody.qml</file>
+        <file>assets/back-arrow.png</file>
+        <file>assets/hamburger.png</file>
+        <file>assets/sandia-logo.png</file>
+        <file>assets/section-c3-logo.png</file>
+        <file>assets/button-home.png</file>
+        <file>Qml/GlobalSignals.qml</file>
+        <file>Qml/Section_C3/SectionC3.qml</file>
+        <file>Qml/Section_C3/C3OfficeHours.qml</file>
+        <file>assets/office-hours-background.png</file>
+        <file>Qml/Section_C3/C3VisitorInformation.qml</file>
+        <file>Qml/Section_C3/C3Events.qml</file>
+        <file>assets/ip-icon.png</file>
+        <file>assets/p-icon.png</file>
+        <file>assets/uf-icon.png</file>
+        <file>assets/uf/popup-cali.png</file>
+        <file>assets/uf/popup-nm.png</file>
+        <file>assets/uf/popup-tx.png</file>
+        <file>assets/uf/uf-map.png</file>
+        <file>Qml/Section_Uf/UfLanding.qml</file>
+        <file>Qml/Section_Uf/SectionUf.qml</file>
+        <file>Qml/Section_Uf/UfPopupScreen.qml</file>
+        <file>assets/marker.png</file>
+    </qresource>
+</RCC>
