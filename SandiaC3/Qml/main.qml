@@ -6,6 +6,7 @@ import "General"
 import "."
 import "Section_C3"
 import "Section_Uf"
+import "Section_P"
 
 Window {
     id: window
@@ -31,12 +32,17 @@ Window {
 
         SectionC3
         {
-//            visible: false
+            visible: false
         }
 
         SectionUf
         {
             visible: false
+        }
+
+        SectionP
+        {
+//            visible: false
         }
     }
 

@@ -11,6 +11,8 @@ Text {
 
     readonly property real linearState: fader.linearState
     readonly property real inOutState: fader.inOutState
+    readonly property real inOutToShow: fader.inOutToShow
+    readonly property real linearToShow: fader.linearToShow
 
     id: root
 

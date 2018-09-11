@@ -5,8 +5,9 @@ Item {
     readonly property vector2d resolution: Qt.vector2d(3840, 2160)
     readonly property int headerSize: resolution.y / 4.5
     readonly property int sectionHeaderSize: headerSize * 2 / 3
-    readonly property int footerSize: headerSize * 2 / 3
+    readonly property int footerSize: headerSize * 2 / 3 - 40
 
+    property color gray: "#D1D1D1"
     property color slate: "#55595C"
     property color charcoal: "#373A3C"
     property color cyan: "#00A9B7"

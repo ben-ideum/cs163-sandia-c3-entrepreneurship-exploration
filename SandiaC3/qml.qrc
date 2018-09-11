@@ -83,5 +83,54 @@
         <file>Qml/Section_Uf/SectionUf.qml</file>
         <file>Qml/Section_Uf/UfPopupScreen.qml</file>
         <file>assets/marker.png</file>
+        <file>assets/close-button.png</file>
+        <file>assets/uf/crf-images.png</file>
+        <file>assets/uf/3d-tour-button.png</file>
+        <file>Qml/Section_Uf/UfCRF.qml</file>
+        <file>Qml/Section_Uf/UfDETL.qml</file>
+        <file>assets/uf/detl-image.png</file>
+        <file>assets/uf/nsttf-image.png</file>
+        <file>Qml/Section_Uf/UfNSTTF.qml</file>
+        <file>Qml/Section_Uf/UfCINT.qml</file>
+        <file>assets/uf/cint-image.png</file>
+        <file>Qml/Section_Uf/UfSWiFT.qml</file>
+        <file>assets/uf/swift-image.png</file>
+        <file>Qml/Section_Uf/UfTourPage.qml</file>
+        <file>Qml/Section_P/SectionP.qml</file>
+        <file>Qml/Section_P/PLanding.qml</file>
+        <file>assets/p/tech-partner-0.png</file>
+        <file>assets/p/tech-partner-1.png</file>
+        <file>assets/p/tech-partner-2.png</file>
+        <file>Qml/Section_P/PTechnologyPartnerships.qml</file>
+        <file>Qml/Section_P/Carousel.qml</file>
+        <file>assets/p/prospective-suppliers-1.png</file>
+        <file>assets/p/prospective-suppliers-2.png</file>
+        <file>Qml/Section_P/PProspectiveSuppliers.qml</file>
+        <file>Qml/Section_P/PAgreements.qml</file>
+        <file>assets/p/agreements-1.png</file>
+        <file>assets/p/agreements-2.png</file>
+        <file>assets/p/agreements-3.png</file>
+        <file>assets/p/agreements-4.png</file>
+        <file>assets/p/agreements-5.png</file>
+        <file>assets/p/agreements-6.png</file>
+        <file>assets/p/agreements-7.png</file>
+        <file>Qml/Section_P/PLicensingTechTransfer.qml</file>
+        <file>assets/p/success-text-1.png</file>
+        <file>assets/p/success-text-2.png</file>
+        <file>assets/p/success-text-3.png</file>
+        <file>assets/p/success-text-4.png</file>
+        <file>assets/chevron-left.png</file>
+        <file>assets/chevron-right.png</file>
+        <file>Qml/Section_P/PSuccessStories.qml</file>
+        <file>Qml/Section_P/SuccessCarousel.qml</file>
+        <file>Qml/Section_P/PRD100.qml</file>
+        <file>Qml/Section_P/PConsortiumAwards.qml</file>
+        <file>assets/p/rd-100-1.png</file>
+        <file>assets/p/rd-100-2.png</file>
+        <file>assets/p/rd-100-3.png</file>
+        <file>assets/p/rd-100-4.png</file>
+        <file>assets/p/rd-100-5.png</file>
+        <file>assets/p/rd-100-icon.png</file>
+        <file>assets/p/consortium-awards-background.png</file>
     </qresource>
 </RCC>

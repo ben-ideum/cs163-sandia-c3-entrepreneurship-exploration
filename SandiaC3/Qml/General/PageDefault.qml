@@ -39,7 +39,7 @@ FadeState {
         {
             anchors.verticalCenter: parent.verticalCenter
             x: parent.height/2
-            text: root.pageTitle.toUpperCase()
+            text: root.pageTitle
             font.pixelSize: parent.height/4
         }
 
@@ -49,8 +49,8 @@ FadeState {
             anchors.right: home_button.left
             anchors.leftMargin: parent.height/2
             anchors.verticalCenter: parent.bottom
-            anchors.verticalCenterOffset: -font.pixelSize
-            font.pixelSize: parent.height/8
+            anchors.verticalCenterOffset: -font.pixelSize*1.25
+            font.pixelSize: parent.height/7
 
             fontSizeMode: Text.HorizontalFit
             text: root.subTitle

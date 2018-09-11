@@ -7,15 +7,16 @@ import ".."
 PageDefault
 {
     property string bubbleState: "HIDDEN"
+    readonly property bool showSubTitle: bubbleState === "SHOWING"
 
-    readonly property vector2d crf_loc: Qt.vector2d(crf.x+crf.width/2, crf.y)
-    readonly property vector2d cint_loc: Qt.vector2d(cint.x+cint.width/2, cint.y)
-    readonly property vector2d detl_loc: Qt.vector2d(detl.x+detl.width/2, detl.y)
-    readonly property vector2d nsttf_loc: Qt.vector2d(nsttf.x+nsttf.width/2, nsttf.y)
-    readonly property vector2d swift_loc: Qt.vector2d(swift.x+swift.width/2, swift.y)
+    readonly property vector2d crf_loc: Qt.vector2d(crf.x+crf.width/2, crf.y+crf.height/2)
+    readonly property vector2d cint_loc: Qt.vector2d(cint.x+cint.width/2, cint.y+cint.height/2)
+    readonly property vector2d detl_loc: Qt.vector2d(detl.x+detl.width/2, detl.y+detl.height/2)
+    readonly property vector2d nsttf_loc: Qt.vector2d(nsttf.x+nsttf.width/2, nsttf.y+nsttf.height*3/5)
+    readonly property vector2d swift_loc: Qt.vector2d(swift.x+swift.width/2, swift.y+swift.height/2)
 
-    pageTitle: "user facilities"
-    subTitle: "A unique set of scientific research capabilities and resources available for use by the scientific community"
+    pageTitle: "USER FACILITIES"
+    subTitle: !showSubTitle ? "" : "A unique set of scientific research capabilities and resources available for use by the scientific community"
     icon_name: "uf-icon"
 
     id: root

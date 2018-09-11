@@ -8,6 +8,9 @@ Item {
     property real linearState: 0
     property real inOutState: 0
 
+    readonly property real inOutToShow: 1-inOutState
+    readonly property real linearToShow: 1-linearState
+
     opacity: 1-linearState
 
     id: root
