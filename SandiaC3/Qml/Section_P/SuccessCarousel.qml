@@ -16,6 +16,38 @@ Item {
 
     clip: true
 
+    MouseArea
+    {
+        property real time
+        property bool flick: false
+        property real px
+
+        anchors.fill: parent
+
+        onPressed:
+        {
+            flick = false
+            time = Date.now()
+            px = mouse.x
+        }
+
+        onPositionChanged:
+        {
+            if (flick) { return }
+            var dt = Date.now() - time
+            var vx = (mouse.x-px) * 1000 / dt
+            if (vx > width/2) {
+                flick = true
+                root.back()
+            } else if (vx < -width/2) {
+                flick = true
+                root.forward()
+            }
+
+            px = mouse.x
+        }
+    }
+
     Repeater
     {
         model: 6
@@ -55,11 +87,7 @@ Item {
         {
             anchors.fill: parent
             anchors.margins: -40
-            onClicked: {
-                var tmp = root.activeElement - 1
-                if (tmp < 0) { tmp += 6 }
-                root.activeElement = tmp
-            }
+            onClicked: root.back()
         }
     }
 
@@ -73,8 +101,18 @@ Item {
         {
             anchors.fill: parent
             anchors.margins: -40
-            onClicked: root.activeElement = (root.activeElement + 1) % 6
+            onClicked: root.forward()
         }
+    }
+
+    function forward() {
+        root.activeElement = (root.activeElement + 1) % 6
+    }
+
+    function back() {
+        var tmp = root.activeElement - 1
+        if (tmp < 0) { tmp += 6 }
+        root.activeElement = tmp
     }
 
     onReset: activeElement = 0

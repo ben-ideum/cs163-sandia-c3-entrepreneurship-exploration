@@ -4,6 +4,7 @@ import "../General"
 import ".."
 
 PageBody {
+    property UfTourPage tourPage: null
 
     property vector2d marker_loc: Qt.vector2d(0,0)
 

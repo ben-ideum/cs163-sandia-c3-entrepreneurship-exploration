@@ -93,7 +93,9 @@ UfPopupScreen
 
     UfTourPage
     {
+        address: "tours.sandia.gov/CINT/"
         id: tour
+        textSource: "../cint-text.png"
     }
 
     onGoTour: tour.state = "SHOWING"

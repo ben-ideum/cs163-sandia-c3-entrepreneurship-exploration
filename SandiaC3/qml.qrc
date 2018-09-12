@@ -43,5 +43,7 @@
         <file>Qml/Section_Ip/IpLanding.qml</file>
         <file>Qml/Section_Ip/IpPatentsPage.qml</file>
         <file>Qml/Attract.qml</file>
+        <file>Qml/tour-loading.png</file>
+        <file>Qml/cint-text.png</file>
     </qresource>
 </RCC>
