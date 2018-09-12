@@ -1,0 +1,109 @@
+<RCC>
+    <qresource prefix="/">
+        <file>assets/fonts/Avenir/AvenirLTStd-Black.otf</file>
+        <file>assets/fonts/Avenir/AvenirLTStd-BlackOblique.otf</file>
+        <file>assets/fonts/Avenir/AvenirLTStd-Book.otf</file>
+        <file>assets/fonts/Avenir/AvenirLTStd-BookOblique.otf</file>
+        <file>assets/fonts/Avenir/AvenirLTStd-Heavy.otf</file>
+        <file>assets/fonts/Avenir/AvenirLTStd-HeavyOblique.otf</file>
+        <file>assets/fonts/Avenir/AvenirLTStd-Light.otf</file>
+        <file>assets/fonts/Avenir/AvenirLTStd-LightOblique.otf</file>
+        <file>assets/fonts/Avenir/AvenirLTStd-Medium.otf</file>
+        <file>assets/fonts/Avenir/AvenirLTStd-MediumOblique.otf</file>
+        <file>assets/fonts/Avenir/AvenirLTStd-Oblique.otf</file>
+        <file>assets/fonts/Avenir/AvenirLTStd-Roman.otf</file>
+        <file>assets/fonts/Gotham/Gotham-Bold 2.otf</file>
+        <file>assets/fonts/Gotham/Gotham-Bold 3.otf</file>
+        <file>assets/fonts/Gotham/Gotham-Bold 4.otf</file>
+        <file>assets/fonts/Gotham/Gotham-Bold 5.otf</file>
+        <file>assets/fonts/Gotham/Gotham-Bold 6.otf</file>
+        <file>assets/fonts/Gotham/Gotham-Bold 7.otf</file>
+        <file>assets/fonts/Gotham/Gotham-Bold 8.otf</file>
+        <file>assets/fonts/Gotham/Gotham-Bold 9.otf</file>
+        <file>assets/fonts/Gotham/Gotham-Bold.otf</file>
+        <file>assets/fonts/Gotham/Gotham-BoldItalic.otf</file>
+        <file>assets/fonts/Gotham/Gotham-Book 2.otf</file>
+        <file>assets/fonts/Gotham/Gotham-Book 3.otf</file>
+        <file>assets/fonts/Gotham/Gotham-Book 4.otf</file>
+        <file>assets/fonts/Gotham/Gotham-Book 5.otf</file>
+        <file>assets/fonts/Gotham/Gotham-Book 6.otf</file>
+        <file>assets/fonts/Gotham/Gotham-Book 7.otf</file>
+        <file>assets/fonts/Gotham/Gotham-Book 8.otf</file>
+        <file>assets/fonts/Gotham/Gotham-Book.otf</file>
+        <file>assets/fonts/Gotham/Gotham-BookItalic 2.otf</file>
+        <file>assets/fonts/Gotham/Gotham-BookItalic 3.otf</file>
+        <file>assets/fonts/Gotham/Gotham-BookItalic.otf</file>
+        <file>assets/fonts/Gotham/Gotham-Light 2.otf</file>
+        <file>assets/fonts/Gotham/Gotham-Light 3.otf</file>
+        <file>assets/fonts/Gotham/Gotham-Light copy.otf</file>
+        <file>assets/fonts/Gotham/Gotham-Light.otf</file>
+        <file>assets/fonts/Gotham/Gotham-LightItalic 2.otf</file>
+        <file>assets/fonts/Gotham/Gotham-LightItalic.otf</file>
+        <file>assets/fonts/Gotham/Gotham-Medium 2.otf</file>
+        <file>assets/fonts/Gotham/Gotham-Medium 3.otf</file>
+        <file>assets/fonts/Gotham/Gotham-Medium 4.otf</file>
+        <file>assets/fonts/Gotham/Gotham-Medium.otf</file>
+        <file>assets/fonts/Gotham/Gotham-MediumItalic 2.otf</file>
+        <file>assets/fonts/Gotham/Gotham-MediumItalic.otf</file>
+        <file>assets/ip/ip-connect-expert.png</file>
+        <file>assets/ip/ip-patent-search.png</file>
+        <file>assets/ip/lt-1.png</file>
+        <file>assets/ip/lt-2.png</file>
+        <file>assets/ip/lt-3.png</file>
+        <file>assets/ip/lt-4.png</file>
+        <file>assets/ip/lt-5.png</file>
+        <file>assets/ip/lt-6.png</file>
+        <file>assets/ip/lt-7.png</file>
+        <file>assets/ip/lt-8.png</file>
+        <file>assets/p/agreements-1.png</file>
+        <file>assets/p/agreements-2.png</file>
+        <file>assets/p/agreements-3.png</file>
+        <file>assets/p/agreements-4.png</file>
+        <file>assets/p/agreements-5.png</file>
+        <file>assets/p/agreements-6.png</file>
+        <file>assets/p/agreements-7.png</file>
+        <file>assets/p/consortium-awards-background.png</file>
+        <file>assets/p/prospective-suppliers-1.png</file>
+        <file>assets/p/prospective-suppliers-2.png</file>
+        <file>assets/p/rd-100-1.png</file>
+        <file>assets/p/rd-100-2.png</file>
+        <file>assets/p/rd-100-3.png</file>
+        <file>assets/p/rd-100-4.png</file>
+        <file>assets/p/rd-100-5.png</file>
+        <file>assets/p/rd-100-icon.png</file>
+        <file>assets/p/success-text-1.png</file>
+        <file>assets/p/success-text-2.png</file>
+        <file>assets/p/success-text-3.png</file>
+        <file>assets/p/success-text-4.png</file>
+        <file>assets/p/tech-partner-0.png</file>
+        <file>assets/p/tech-partner-1.png</file>
+        <file>assets/p/tech-partner-2.png</file>
+        <file>assets/uf/3d-tour-button.png</file>
+        <file>assets/uf/cint-image.png</file>
+        <file>assets/uf/crf-images.png</file>
+        <file>assets/uf/detl-image.png</file>
+        <file>assets/uf/nsttf-image.png</file>
+        <file>assets/uf/popup-cali.png</file>
+        <file>assets/uf/popup-nm.png</file>
+        <file>assets/uf/popup-tx.png</file>
+        <file>assets/uf/swift-image.png</file>
+        <file>assets/uf/uf-map.png</file>
+        <file>assets/back-arrow.png</file>
+        <file>assets/background.png</file>
+        <file>assets/button-home.png</file>
+        <file>assets/c3_icon-big.png</file>
+        <file>assets/c3_icon.png</file>
+        <file>assets/chevron-left.png</file>
+        <file>assets/chevron-right.png</file>
+        <file>assets/close-button.png</file>
+        <file>assets/hamburger.png</file>
+        <file>assets/ip-icon.png</file>
+        <file>assets/lt-icon.png</file>
+        <file>assets/marker.png</file>
+        <file>assets/office-hours-background.png</file>
+        <file>assets/p-icon.png</file>
+        <file>assets/sandia-logo.png</file>
+        <file>assets/section-c3-logo.png</file>
+        <file>assets/uf-icon.png</file>
+    </qresource>
+</RCC>

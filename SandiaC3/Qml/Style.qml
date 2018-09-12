@@ -17,6 +17,7 @@ Item {
     FontLoader { id: h1_bold; source: "../assets/fonts/Avenir/AvenirLTStd-Heavy.otf" }
     FontLoader { id: p; source: "../assets/fonts/Gotham/Gotham-Medium.otf" }
     FontLoader { id: p_bold; source: "../assets/fonts/Gotham/Gotham-Bold 2.otf" }
+    FontLoader { id: p_book; source: "../assets/fonts/Gotham/Gotham-Book 2.otf" }
 
     readonly property QtObject font_h1: QtObject {
         property string font: h1.name
@@ -35,6 +36,11 @@ Item {
 
     readonly property QtObject font_p_bold: QtObject {
         property string font: p_bold.name
+        property real lineHeight: 1.35
+    }
+
+    readonly property QtObject font_p_book: QtObject {
+        property string font: p_book.name
         property real lineHeight: 1.35
     }
 }
