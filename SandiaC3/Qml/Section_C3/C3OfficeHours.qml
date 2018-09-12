@@ -11,6 +11,7 @@ PageDefault
     PageBody
     {
         clip: true
+        state: root.state
 
         Rectangle
         {

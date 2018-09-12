@@ -105,5 +105,6 @@
         <file>assets/sandia-logo.png</file>
         <file>assets/section-c3-logo.png</file>
         <file>assets/uf-icon.png</file>
+        <file>assets/attract-background.png</file>
     </qresource>
 </RCC>

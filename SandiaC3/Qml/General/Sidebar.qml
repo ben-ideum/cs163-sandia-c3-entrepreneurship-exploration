@@ -19,6 +19,7 @@ Rectangle {
 
     signal show();
     signal hide();
+    signal setArea(int num)
 
     Connections
     {
@@ -64,6 +65,7 @@ Rectangle {
 
                     AppText
                     {
+                        id: txt
                         text: "Main Menu"
                         font.pixelSize: parent.height/3
                         anchors.verticalCenter: parent.verticalCenter
@@ -71,10 +73,17 @@ Rectangle {
 
                     Image
                     {
+                        id: home_button
                         source: "../../assets/button-home.png"
                         height: header_text.height
                         fillMode: Image.PreserveAspectFit
                     }
+                }
+
+                MouseArea
+                {
+                    anchors.fill: menu_buttons
+                    onClicked: GlobalSignals.goHome()
                 }
 
                 MouseArea
@@ -106,7 +115,7 @@ Rectangle {
             {
                 text: modelData
                 selected: root.activeArea == index
-                onClicked: { root.activeArea = index; root.hide() }
+                onClicked: { root.setArea(index); root.hide() }
             }
         }
     }

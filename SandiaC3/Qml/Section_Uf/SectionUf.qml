@@ -3,9 +3,9 @@ import QtQuick 2.0
 import "../General"
 import ".."
 
-Item {
+FadeState {
 
-    readonly property var fields: [landing, crf, detl, nsttf, cint, swift]
+    readonly property var fields: [landing, crf, cint, detl, nsttf, swift]
 
     id: root
 
@@ -20,6 +20,7 @@ Item {
         onMenuClicked: sidebar.show()
         onGo: root.goTo(num)
         onBackClicked: root.goBack()
+        onHomeClicked: root.goHome()
     }
 
     UfCRF
@@ -79,6 +80,7 @@ Item {
     {
         id: sidebar
         buttons: ["SNL Map", "CRF", "CINT", "DETL", "NSTTF", "SWiFT"]
+        onSetArea: activeArea = num
     }
 
     function goTo(num) {
@@ -86,6 +88,9 @@ Item {
     }
 
     function goHome() {
+        if (sidebar.activeArea !== 0) {
+            root.fields[sidebar.activeArea].stopTour()
+        }
         sidebar.activeArea = 0
     }
 

@@ -41,3 +41,9 @@ target_wrapper.*
 
 # QtCreator CMake
 CMakeLists.txt.user*
+SandiaC3/videos/Background_video_loop.mov
+SandiaC3/videos/RD100_ControlSystemActiveDampening.mp4
+SandiaC3/videos/RD100_UWBG_RandD100_4_21_1.mp4
+SandiaC3/videos/RD100_SolidSenseGas Analyzer.mp4
+SandiaC3/videos/RD100_SGHAT 2013.mp4
+SandiaC3/videos/RD100_Microgrid Toolkit.mp4

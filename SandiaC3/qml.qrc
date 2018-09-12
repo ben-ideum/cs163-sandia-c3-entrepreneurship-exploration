@@ -42,5 +42,6 @@
         <file>Qml/Section_Ip/SectionIp.qml</file>
         <file>Qml/Section_Ip/IpLanding.qml</file>
         <file>Qml/Section_Ip/IpPatentsPage.qml</file>
+        <file>Qml/Attract.qml</file>
     </qresource>
 </RCC>

@@ -3,7 +3,8 @@ import QtQuick 2.0
 import "../General"
 import ".."
 
-Item {
+FadeState {
+    property int area: 0
 
     readonly property var fields: [landing, lt1, lt2, lt3, lt4, lt5, lt6, lt7, lt8]
 
@@ -14,7 +15,7 @@ Item {
     IpLanding
     {
         id: landing
-        state: sidebar.activeArea === root.fields.indexOf(this) ? "SHOWING" : "HIDDEN"
+        state: root.area === root.fields.indexOf(this) ? "SHOWING" : "HIDDEN"
 
         onMenuClicked: sidebar.show()
         onGo: root.goTo(num)
@@ -23,7 +24,7 @@ Item {
     IpPatentsPage
     {
         id: lt1
-        state: sidebar.activeArea === root.fields.indexOf(this) ? "SHOWING" : "HIDDEN"
+        state: root.area === root.fields.indexOf(this) ? "SHOWING" : "HIDDEN"
 
         bodyText: "1.	 Bacteriophage Host-Range Expansion
 2.	 Large Field of View, 3D X-ray Phase Contrast Imaging System
@@ -43,13 +44,13 @@ Item {
 16.	The µChemLab™: Bio Detector"
 
         onMenuClicked: sidebar.show()
-        onBackClicked: root.goHome()
+        onHomeClicked: root.goHome()
     }
 
     IpPatentsPage
     {
         id: lt2
-        state: sidebar.activeArea === root.fields.indexOf(this) ? "SHOWING" : "HIDDEN"
+        state: root.area === root.fields.indexOf(this) ? "SHOWING" : "HIDDEN"
         elementIcon: "lt-2"
 
         bodyText: "1.	 HADES: High-Fidelity Adaptive Deception & Emulation System
@@ -62,13 +63,13 @@ Item {
 8.	 Encryption Engine"
 
         onMenuClicked: sidebar.show()
-        onBackClicked: root.goHome()
+        onHomeClicked: root.goHome()
     }
 
     IpPatentsPage
     {
         id: lt3
-        state: sidebar.activeArea === root.fields.indexOf(this) ? "SHOWING" : "HIDDEN"
+        state: root.area === root.fields.indexOf(this) ? "SHOWING" : "HIDDEN"
         elementIcon: "lt-3"
 
         bodyText: "1.	Synthesis of Nanocrystalline Iron Nitrides Using Two-Step Reactive Milling Process
@@ -81,14 +82,14 @@ Item {
 "
 
         onMenuClicked: sidebar.show()
-        onBackClicked: root.goHome()
+        onHomeClicked: root.goHome()
     }
 
 
     IpPatentsPage
     {
         id: lt4
-        state: sidebar.activeArea === root.fields.indexOf(this) ? "SHOWING" : "HIDDEN"
+        state: root.area === root.fields.indexOf(this) ? "SHOWING" : "HIDDEN"
         elementIcon: "lt-4"
 
         col1Text: "1.	  Synthesis of Nanocrystalline Iron Nitrides Using Two-Step Reactive Milling Process
@@ -137,13 +138,13 @@ Item {
 "
 
         onMenuClicked: sidebar.show()
-        onBackClicked: root.goHome()
+        onHomeClicked: root.goHome()
     }
 
     IpPatentsPage
     {
         id: lt5
-        state: sidebar.activeArea === root.fields.indexOf(this) ? "SHOWING" : "HIDDEN"
+        state: root.area === root.fields.indexOf(this) ? "SHOWING" : "HIDDEN"
         elementIcon: "lt-5"
 
         col1Text: "1.	Synthesis of Nanocrystalline Iron Nitrides Using Two-Step Reactive Milling Process
@@ -187,13 +188,13 @@ Item {
 "
 
         onMenuClicked: sidebar.show()
-        onBackClicked: root.goHome()
+        onHomeClicked: root.goHome()
     }
 
     IpPatentsPage
     {
         id: lt6
-        state: sidebar.activeArea === root.fields.indexOf(this) ? "SHOWING" : "HIDDEN"
+        state: root.area === root.fields.indexOf(this) ? "SHOWING" : "HIDDEN"
         elementIcon: "lt-6"
 
         bodyText: "1.	Organic Glass for Radiation Detection
@@ -206,13 +207,13 @@ Item {
 "
 
         onMenuClicked: sidebar.show()
-        onBackClicked: root.goHome()
+        onHomeClicked: root.goHome()
     }
 
     IpPatentsPage
     {
         id: lt7
-        state: sidebar.activeArea === root.fields.indexOf(this) ? "SHOWING" : "HIDDEN"
+        state: root.area === root.fields.indexOf(this) ? "SHOWING" : "HIDDEN"
         elementIcon: "lt-7"
 
         col1Text: "1.	Hybrid Wide Range Detector Amplifier
@@ -247,13 +248,13 @@ Item {
 "
 
         onMenuClicked: sidebar.show()
-        onBackClicked: root.goHome()
+        onHomeClicked: root.goHome()
     }
 
     IpPatentsPage
     {
         id: lt8
-        state: sidebar.activeArea === root.fields.indexOf(this) ? "SHOWING" : "HIDDEN"
+        state: root.area === root.fields.indexOf(this) ? "SHOWING" : "HIDDEN"
         elementIcon: "lt-8"
 
         col1Text: "1.	Synthesis of Nanocrystalline Iron Nitrides Using Two-Step Reactive Milling Process
@@ -285,20 +286,29 @@ Item {
 26.	Miniaturized Mass Spectrometer"
 
         onMenuClicked: sidebar.show()
-        onBackClicked: root.goHome()
+        onHomeClicked: root.goHome()
     }
 
     Sidebar
     {
+        activeArea: root.area === 0 ? 0 : root.area < 9 ? 1 : root.area-7
         id: sidebar
-        buttons: ["Intellectual Property", "Visual Patent Search", "Lab Experts"]
+        buttons: ["Intellectual Property", "Licensible Technologies", "Visual Patent Search", "Lab Experts"]
+        onSetArea:
+        {
+            if (num < 2) {
+                root.area = num
+            } else {
+                root.area = num + 7
+            }
+        }
     }
 
     function goTo(num) {
-        sidebar.activeArea = num
+        root.area = num
     }
 
     function goHome() {
-        sidebar.activeArea = 0
+        root.area = 0
     }
 }

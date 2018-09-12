@@ -128,4 +128,6 @@ FadeState {
             anchors.rightMargin: parent.height/6
         }
     }
+
+    onBackClicked: GlobalSignals.goHome()
 }

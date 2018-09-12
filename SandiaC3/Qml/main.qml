@@ -33,22 +33,80 @@ Window {
 
         SectionC3
         {
-            visible: false
+            id: c3
         }
 
         SectionUf
         {
-            visible: false
+            id: uf
         }
 
         SectionP
         {
-            visible: false
+            id: p
         }
 
         SectionIp
         {
-//            visible: false
+            id: ip
+        }
+
+        Attract
+        {
+            id: attract
+            anchors.fill: parent
+
+            state: "SHOWING"
+
+            onGoC3:
+            {
+                state = "HIDDEN"
+                c3.state = "SHOWING"
+                c3.goTo(num)
+            }
+
+            onGoPartnerships:
+            {
+                state = "HIDDEN"
+                p.state = "SHOWING"
+                p.goTo(num)
+            }
+
+            onGoMap:
+            {
+                state = "HIDDEN"
+                uf.state = "SHOWING"
+                uf.goTo(num)
+            }
+
+            onGoIp:
+            {
+                state = "HIDDEN"
+                ip.state = "SHOWING"
+                ip.goTo(num)
+            }
+        }
+    }
+
+    Connections
+    {
+        target: GlobalSignals
+
+        onGoHome:
+        {
+            attract.state = "SHOWING"
+
+            c3.state = "HIDDEN"
+            c3.goHome()
+
+            uf.state = "HIDDEN"
+            uf.goHome()
+
+            p.state = "HIDDEN"
+            p.goHome()
+
+            ip.state = "HIDDEN"
+            ip.goHome()
         }
     }
 

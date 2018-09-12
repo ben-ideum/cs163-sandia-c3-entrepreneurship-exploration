@@ -155,7 +155,7 @@ PageDefault
         MouseArea
         {
             id: detl
-            onClicked: root.go(2)
+            onClicked: root.go(3)
             x: 1360
             y: 1180
             width: 240
@@ -165,7 +165,7 @@ PageDefault
         MouseArea
         {
             id: nsttf
-            onClicked: root.go(3)
+            onClicked: root.go(4)
             x: 2460
             y: 100
             width: 460
@@ -175,7 +175,7 @@ PageDefault
         MouseArea
         {
             id: cint
-            onClicked: root.go(4)
+            onClicked: root.go(2)
             x: 3050
             y: 580
             width: 270

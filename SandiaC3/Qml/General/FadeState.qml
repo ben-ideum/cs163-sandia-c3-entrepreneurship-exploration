@@ -12,6 +12,7 @@ Item {
     readonly property real linearToShow: 1-linearState
 
     opacity: 1-linearState
+    enabled: opacity === 1.0
 
     id: root
 

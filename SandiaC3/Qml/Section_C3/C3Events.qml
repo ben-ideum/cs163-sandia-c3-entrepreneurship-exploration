@@ -18,6 +18,8 @@ PageDefault
 
         clip: true
 
+        state: root.state
+
         Rectangle
         {
             anchors.fill: parent
@@ -46,6 +48,8 @@ PageDefault
     PageBody
     {
         clip: true
+
+        state: root.state
 
         Flickable
         {

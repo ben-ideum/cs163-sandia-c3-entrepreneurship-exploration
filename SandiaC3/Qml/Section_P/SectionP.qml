@@ -3,7 +3,7 @@ import QtQuick 2.0
 import "../General"
 import ".."
 
-Item {
+FadeState {
 
     readonly property var fields: [landing, partnerships, suppliers, agreements, licensing, successes, rd100, consortium]
 
@@ -26,7 +26,7 @@ Item {
         state: sidebar.activeArea === root.fields.indexOf(this) ? "SHOWING" : "HIDDEN"
 
         onMenuClicked: sidebar.show()
-        onBackClicked: root.goHome()
+        onHomeClicked: root.goHome()
     }
 
     PProspectiveSuppliers
@@ -35,7 +35,7 @@ Item {
         state: sidebar.activeArea === root.fields.indexOf(this) ? "SHOWING" : "HIDDEN"
 
         onMenuClicked: sidebar.show()
-        onBackClicked: root.goHome()
+        onHomeClicked: root.goHome()
     }
 
     PAgreements
@@ -44,7 +44,7 @@ Item {
         state: sidebar.activeArea === root.fields.indexOf(this) ? "SHOWING" : "HIDDEN"
 
         onMenuClicked: sidebar.show()
-        onBackClicked: root.goHome()
+        onHomeClicked: root.goHome()
     }
 
     PLicensingTechTransfer
@@ -53,7 +53,7 @@ Item {
         state: sidebar.activeArea === root.fields.indexOf(this) ? "SHOWING" : "HIDDEN"
 
         onMenuClicked: sidebar.show()
-        onBackClicked: root.goHome()
+        onHomeClicked: root.goHome()
     }
 
     PSuccessStories
@@ -62,7 +62,7 @@ Item {
         state: sidebar.activeArea === root.fields.indexOf(this) ? "SHOWING" : "HIDDEN"
 
         onMenuClicked: sidebar.show()
-        onBackClicked: root.goHome()
+        onHomeClicked: root.goHome()
     }
 
     PRD100
@@ -71,7 +71,7 @@ Item {
         state: sidebar.activeArea === root.fields.indexOf(this) ? "SHOWING" : "HIDDEN"
 
         onMenuClicked: sidebar.show()
-        onBackClicked: root.goHome()
+        onHomeClicked: root.goHome()
     }
 
     PConsortiumAwards
@@ -80,7 +80,7 @@ Item {
         state: sidebar.activeArea === root.fields.indexOf(this) ? "SHOWING" : "HIDDEN"
 
         onMenuClicked: sidebar.show()
-        onBackClicked: root.goHome()
+        onHomeClicked: root.goHome()
     }
 
     PageBody
@@ -109,6 +109,7 @@ Item {
     {
         id: sidebar
         buttons: ["Partnership Home", "Tech Partnerships", "Prospective Suppliers", "Agreements", "Licensing & Tech Transfer", "Success Stories", "RD100 Awards", "FLC Awards"]
+        onSetArea: activeArea = num
     }
 
 

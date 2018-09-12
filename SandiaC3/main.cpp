@@ -8,6 +8,8 @@
 #include <QVariantList>
 #include <QDir>
 
+#include <QtWebEngine/QtWebEngine>
+
 QVariantList parseEvents(QString path) {
     QVariantList events;
     path += "events.tsv";
@@ -58,6 +60,7 @@ int main(int argc, char *argv[])
     QString desktopPath = QStandardPaths::locate(QStandardPaths::DesktopLocation, QString(), QStandardPaths::LocateDirectory);
 
     QQmlApplicationEngine engine;
+    QtWebEngine::initialize();
 
     engine.rootContext()->setContextProperty("eventList", parseEvents(desktopPath+"/content/"));
     engine.rootContext()->setContextProperty("contentPath", "file:///"+desktopPath+"/content/");

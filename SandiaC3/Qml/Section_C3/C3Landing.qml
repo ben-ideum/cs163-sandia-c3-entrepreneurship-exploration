@@ -1,4 +1,5 @@
 import QtQuick 2.0
+import QtMultimedia 5.9
 
 import ".."
 import "../General"
@@ -22,7 +23,18 @@ SectionDefault
 
     SectionBody
     {
-        Image { anchors.fill: parent; source: "../../assets/background.png" }
+        //Image { anchors.fill: parent; source: "../../assets/background.png" }
+        Video
+        {
+            width: parent.width
+            height: parent.height
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.bottom: parent.bottom
+            fillMode: VideoOutput.PreserveAspectCrop
+            source: "../../videos/Background_video_loop.mov"
+            loops: MediaPlayer.Infinite
+            autoPlay: true
+        }
 
         AppText
         {

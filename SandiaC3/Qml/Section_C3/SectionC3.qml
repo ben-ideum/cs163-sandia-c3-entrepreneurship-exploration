@@ -2,7 +2,7 @@ import QtQuick 2.0
 
 import "../General"
 
-Item {
+FadeState {
 
     readonly property var fields: [landing, office_hours, events, signin]
 
@@ -24,8 +24,8 @@ Item {
         id: office_hours
         state: sidebar.activeArea === root.fields.indexOf(this) ? "SHOWING" : "HIDDEN"
 
-        onBackClicked: root.goHome()
         onMenuClicked: sidebar.show()
+        onHomeClicked: root.goHome()
     }
 
     C3Events
@@ -33,8 +33,8 @@ Item {
         id: events
         state: sidebar.activeArea === root.fields.indexOf(this) ? "SHOWING" : "HIDDEN"
 
-        onBackClicked: root.goHome()
         onMenuClicked: sidebar.show()
+        onHomeClicked: root.goHome()
     }
 
     C3VisitorInformation
@@ -42,14 +42,15 @@ Item {
         id: signin
         state: sidebar.activeArea === root.fields.indexOf(this) ? "SHOWING" : "HIDDEN"
 
-        onBackClicked: root.goHome()
         onMenuClicked: sidebar.show()
+        onHomeClicked: root.goHome()
     }
 
     Sidebar
     {
         id: sidebar
         buttons: ["C3 Home", "Office Hours", "Events", "Sign-In Form", "Presentation", "White Board"]
+        onSetArea: activeArea = num
     }
 
     function goTo(num) {
