@@ -87,6 +87,11 @@ FadeState {
         sidebar.activeArea = num
     }
 
+    function goTour(num) {
+        sidebar.activeArea = num
+        fields[sidebar.activeArea].goTour()
+    }
+
     function goHome() {
         if (sidebar.activeArea !== 0) {
             root.fields[sidebar.activeArea].stopTour()

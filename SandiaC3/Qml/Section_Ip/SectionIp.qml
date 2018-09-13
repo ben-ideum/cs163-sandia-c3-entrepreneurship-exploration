@@ -6,7 +6,7 @@ import ".."
 FadeState {
     property int area: 0
 
-    readonly property var fields: [landing, lt1, lt2, lt3, lt4, lt5, lt6, lt7, lt8]
+    readonly property var fields: [landing, lt1, lt2, lt3, lt4, lt5, lt6, lt7, lt8, patents, experts]
 
     id: root
 
@@ -284,6 +284,24 @@ FadeState {
 24.	Separation of Polar Molecules
 25.	High Accuracy Non-A/C Powered Leak Tester and Volume Calibrator
 26.	Miniaturized Mass Spectrometer"
+
+        onMenuClicked: sidebar.show()
+        onHomeClicked: root.goHome()
+    }
+
+    IpPatentSearch
+    {
+        id: patents
+        state: root.area === root.fields.indexOf(this) ? "SHOWING" : "HIDDEN"
+
+        onMenuClicked: sidebar.show()
+        onHomeClicked: root.goHome()
+    }
+
+    IpAskExpert
+    {
+        id: experts
+        state: root.area === root.fields.indexOf(this) ? "SHOWING" : "HIDDEN"
 
         onMenuClicked: sidebar.show()
         onHomeClicked: root.goHome()

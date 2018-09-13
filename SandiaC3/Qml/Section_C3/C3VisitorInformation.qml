@@ -1,6 +1,7 @@
 import QtQuick 2.0
 
 import "../General"
+import "SignIn"
 
 PageDefault
 {
@@ -10,6 +11,18 @@ PageDefault
 
     PageBody
     {
+        state: root.state
 
+        MouseArea
+        {
+            anchors.fill: parent
+            onClicked: forceActiveFocus()
+        }
+
+        SignInField
+        {
+           x: 536
+           y: 100
+        }
     }
 }

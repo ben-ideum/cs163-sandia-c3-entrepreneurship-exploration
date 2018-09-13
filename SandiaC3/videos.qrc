@@ -1,5 +1,5 @@
 <RCC>
     <qresource prefix="/">
-        <file>videos/Background_video_loop.mov</file>
+        <file>videos/Background_video_loop.mp4</file>
     </qresource>
 </RCC>

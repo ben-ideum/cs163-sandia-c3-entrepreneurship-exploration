@@ -31,7 +31,7 @@ SectionDefault
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.bottom: parent.bottom
             fillMode: VideoOutput.PreserveAspectCrop
-            source: "../../videos/Background_video_loop.mov"
+            source: "../../videos/Background_video_loop.mp4"
             loops: MediaPlayer.Infinite
             autoPlay: true
         }

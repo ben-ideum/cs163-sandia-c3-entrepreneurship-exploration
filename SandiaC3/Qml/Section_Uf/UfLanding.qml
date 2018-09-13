@@ -41,7 +41,7 @@ PageDefault
         {
             width: parent.width
             anchors.bottom: parent.bottom
-            fillMode: Image.PreserveAspectFit
+            fillMode: Image.PreserveAspectCrop
             source: "../../assets/uf/uf-map.png"
         }
 

@@ -45,5 +45,15 @@
         <file>Qml/Attract.qml</file>
         <file>Qml/tour-loading.png</file>
         <file>Qml/cint-text.png</file>
+        <file>Qml/Section_Ip/IpPatentSearch.qml</file>
+        <file>Qml/Section_Ip/IpAskExpert.qml</file>
+        <file>Qml/Section_P/PRD100VideoPlayer.qml</file>
+        <file>Qml/icon-play.png</file>
+        <file>Qml/icon-rewind.png</file>
+        <file>Qml/icon-skip.png</file>
+        <file>Qml/Section_C3/SignIn/SignInField.qml</file>
+        <file>Qml/Section_C3/SignIn/SignInDropdown.qml</file>
+        <file>Qml/Section_C3/SignIn/SignInUSCitizen.qml</file>
+        <file>Qml/Section_C3/SignIn/SignInOtherCitizenships.qml</file>
     </qresource>
 </RCC>

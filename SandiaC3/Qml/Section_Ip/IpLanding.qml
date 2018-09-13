@@ -133,6 +133,12 @@ PageDefault
             text: "Visual Patent Search"
             anchors.top: parent.top
             anchors.topMargin: 450 - inOutState * 100
+
+            MouseArea
+            {
+                anchors.fill: parent
+                onClicked: root.go(9)
+            }
         }
 
         FadeState
@@ -145,6 +151,12 @@ PageDefault
             Image {
                 source: "../../assets/ip/ip-patent-search.png"
                 y: parent.inOutState * -100
+
+                MouseArea
+                {
+                    anchors.fill: parent
+                    onClicked: root.go(9)
+                }
             }
         }
 
@@ -162,6 +174,12 @@ PageDefault
             anchors.top: parent.top
             anchors.topMargin: 430 - inOutState * 100
             lineHeight: 1.1
+
+            MouseArea
+            {
+                anchors.fill: parent
+                onClicked: root.go(10)
+            }
         }
 
         FadeState
@@ -174,6 +192,12 @@ PageDefault
             Image {
                 source: "../../assets/ip/ip-connect-expert.png"
                 y: parent.inOutState * -100
+
+                MouseArea
+                {
+                    anchors.fill: parent
+                    onClicked: root.go(10)
+                }
             }
         }
     }

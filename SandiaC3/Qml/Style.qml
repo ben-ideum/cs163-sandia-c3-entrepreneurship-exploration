@@ -12,6 +12,7 @@ Item {
     property color charcoal: "#373A3C"
     property color cyan: "#00A9B7"
     property color dark_cyan: "#74A1AD"
+    property color orange: "#EF6E22"
 
     FontLoader { id: h1; source: "../assets/fonts/Avenir/AvenirLTStd-Medium.otf" }
     FontLoader { id: h1_bold; source: "../assets/fonts/Avenir/AvenirLTStd-Heavy.otf" }

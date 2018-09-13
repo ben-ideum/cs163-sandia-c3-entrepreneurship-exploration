@@ -148,32 +148,30 @@ FadeState {
         x: 438 + (234 + 9) * 2 + (209 + 9) * 5
         y: 193 + 234 + 9
 
-        Rectangle
+        MouseArea
         {
-            color: "white"
-            opacity: 0.7
             height: 234
             width: 234
+            onClicked: root.goIp(10) // lab experts
         }
 
         Item
         {
             x: (234 + 9) * 4
 
-            Rectangle
+            MouseArea
             {
                 y: - (234 + 9)
-                color: "white"
-                opacity: 0.7
                 height: 234
                 width: 234
+                onClicked: root.goIp(9) // visual patent search
             }
 
             MouseArea
             {
                 height: 234
                 width: 234
-                onClicked: root.goIp(0)
+                onClicked: root.goIp(0) // licensible tech
             }
         }
     }
