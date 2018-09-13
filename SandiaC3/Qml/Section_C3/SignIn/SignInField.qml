@@ -9,6 +9,8 @@ Rectangle {
 
     readonly property TextInput inputArea: inpt
 
+    property string entry: inpt.text.replace("\t","    ")
+
     id: root
 
     height: 115
@@ -21,10 +23,11 @@ Rectangle {
     TextInput
     {
         id: inpt
+        font.family: tip_text.font.family
         anchors.fill: parent
         anchors.leftMargin: 46
         color: Style.orange
-        font.pixelSize: parent.height/3
+        font.pixelSize: parent.height/3.5
         verticalAlignment: Text.AlignVCenter
         cursorVisible: true
         onFocusChanged: if (focus) { error_anim.stop() }
@@ -39,12 +42,13 @@ Rectangle {
 
         AppText
         {
+            id: tip_text
             anchors.fill: parent
             anchors.leftMargin: 46
             horizontalAlignment: Text.AlignLeft
             verticalAlignment: Text.AlignVCenter
             color: "white"
-            font.pixelSize: parent.height/4
+            font.pixelSize: parent.height/4.5
             fontPrototype: Style.font_p_bold
             text: root.fieldName
         }
@@ -60,7 +64,7 @@ Rectangle {
         font.pixelSize: parent.height/3
         fontPrototype: Style.font_p
         text: root.defaultText
-        opacity: 0.5
+        opacity: 0.8
         visible: !inpt.focus && inpt.text === ""
     }
 

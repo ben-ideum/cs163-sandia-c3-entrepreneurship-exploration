@@ -43,7 +43,7 @@ UfPopupScreen
             state: root.state
             x: 100
             anchors.top: parent.top
-            anchors.topMargin: 150 * inOutToShow
+            anchors.topMargin: 120 * inOutToShow
             delay: 800
             duration: 200
             font.pixelSize: 80
@@ -51,17 +51,17 @@ UfPopupScreen
 
         AppText
         {
-            text: "DETL conducts research to integrate emerging energy technologies into new and existing electricity infrastructures. A designated user facility, staff work sideby-side with partners to conduct investigations and explore new systems approaches to electric grid issues. These partnerships span the spectrum of utilities, manufacturers, system integrators, universities, state energy offices, other national laboratories and defense institutions, and even international collaborators."
+            text: "DETL conducts research to integrate emerging energy technologies into new and existing electricity infrastructures. A designated user facility, staff work sideby-side with partners to conduct investigations and explore new systems approaches to electric grid issues. These partnerships span the spectrum of utilities, manufacturers, system integrators, universities, state energy offices, other national laboratories and defense institutions, and even international collaborators. The Photovoltaic Systems Evaluation Laboratory (PSEL) is a multi-user, multi-sponsor facility that conducts research in PV cells, modules, and arrays and performs detailed, comprehensive analysis in PV systems design, optimization, and characterization in real-world scenarios."
             state: root.state
             x: 100
             anchors.top: parent.top
-            anchors.topMargin: 280 - font.pixelSize * inOutState
+            anchors.topMargin: 260 - font.pixelSize * inOutState
             delay: 1000
             duration: 200
-            width: parent.width * 0.37
+            width: parent.width * 0.4
             wrapMode: Text.Wrap
             fontPrototype: Style.font_p
-            font.pixelSize: 40
+            font.pixelSize: 36
             lineHeight: 1.1
         }
     }

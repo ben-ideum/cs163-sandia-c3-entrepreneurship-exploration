@@ -82,8 +82,8 @@ PageDefault
         Rectangle
         {
             anchors.fill: parent
-            color: "white"
-            opacity: root.activeVideo === -1 ? 0 : 0.6
+            color: "black"
+            opacity: root.activeVideo === -1 ? 0 : 0.8
             Behavior on opacity { NumberAnimation { duration: 500 } }
 
             MouseArea

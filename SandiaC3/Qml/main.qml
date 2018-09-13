@@ -11,13 +11,20 @@ import "Section_Ip"
 Window {
     id: window
     visible: true
-    width: 1920 * 2 / 3
-    height: 1080 * 2 / 3
+    width: Screen.width//1920 * 2 / 3
+    height: Screen.height//1080 * 2 / 3
     title: qsTr("C3 Visitor Information")
 
     color: "black"
 
     flags: Qt.FramelessWindowHint
+
+    Connections
+    {
+        target: backend
+
+        onProcessDone: window.show()
+    }
 
     Item
     {
@@ -33,6 +40,18 @@ Window {
         SectionC3
         {
             id: c3
+
+            onLaunchPresentation:
+            {
+                window.hide()
+                backend.launchPresentation()
+            }
+
+            onLaunchWhiteboard:
+            {
+                window.hide()
+                backend.launchWhiteboard()
+            }
         }
 
         SectionUf
@@ -59,9 +78,15 @@ Window {
 
             onGoC3:
             {
-                state = "HIDDEN"
-                c3.state = "SHOWING"
-                c3.goTo(num)
+                if (num == 4) {
+                    c3.launchPresentation()
+                } else if (num === 5) {
+                    c3.launchWhiteboard()
+                } else {
+                    state = "HIDDEN"
+                    c3.state = "SHOWING"
+                    c3.goTo(num)
+                }
             }
 
             onGoPartnerships:

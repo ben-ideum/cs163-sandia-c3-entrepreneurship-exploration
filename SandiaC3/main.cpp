@@ -4,11 +4,15 @@
 
 #include <QStandardPaths>
 
+#include <QVariant>
+
 #include <QDebug>
 #include <QVariantList>
 #include <QDir>
 
 #include <QtWebEngine/QtWebEngine>
+
+#include "backendfunctions.h"
 
 QVariantList parseEvents(QString path) {
     QVariantList events;
@@ -55,6 +59,8 @@ int main(int argc, char *argv[])
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 #endif
 
+    BackendFunctions * backend = new BackendFunctions();
+
     QGuiApplication app(argc, argv);
 
     QString desktopPath = QStandardPaths::locate(QStandardPaths::DesktopLocation, QString(), QStandardPaths::LocateDirectory);
@@ -64,6 +70,7 @@ int main(int argc, char *argv[])
 
     engine.rootContext()->setContextProperty("eventList", parseEvents(desktopPath+"/content/"));
     engine.rootContext()->setContextProperty("contentPath", "file:///"+desktopPath+"/content/");
+    engine.rootContext()->setContextProperty("backend", backend);
 
     engine.load(QUrl(QStringLiteral("qrc:/Qml/main.qml")));
     if (engine.rootObjects().isEmpty())

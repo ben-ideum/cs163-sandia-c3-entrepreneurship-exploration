@@ -10,6 +10,9 @@ FadeState {
 
     anchors.fill: parent
 
+    signal launchPresentation();
+    signal launchWhiteboard();
+
     C3Landing
     {
         id: landing
@@ -50,11 +53,17 @@ FadeState {
     {
         id: sidebar
         buttons: ["C3 Home", "Office Hours", "Events", "Sign-In Form", "Presentation", "White Board"]
-        onSetArea: activeArea = num
+        onSetArea: root.goTo(num)
     }
 
     function goTo(num) {
-        sidebar.activeArea = num
+        if (num === 4) {
+            root.launchPresentation()
+        } else if (num === 5) {
+            root.launchWhiteboard()
+        } else {
+            sidebar.activeArea = num
+        }
     }
 
     function goHome() {

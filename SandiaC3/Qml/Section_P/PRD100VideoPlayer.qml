@@ -23,6 +23,8 @@ FadeState {
         color: "black"
         radius: 40
 
+        MouseArea { anchors.fill: parent }
+
         Image {
             id: close_btn
             source: "../../assets/close-button.png"

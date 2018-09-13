@@ -109,7 +109,8 @@ FadeState {
     {
         id: sidebar
         buttons: ["Partnership Home", "Tech Partnerships", "Prospective Suppliers", "Agreements", "Licensing & Tech Transfer", "Success Stories", "RD100 Awards", "FLC Awards"]
-        onSetArea: activeArea = num
+
+        onSetArea: root.goTo(num)
     }
 
 

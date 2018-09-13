@@ -80,7 +80,8 @@ FadeState {
     {
         id: sidebar
         buttons: ["SNL Map", "CRF", "CINT", "DETL", "NSTTF", "SWiFT"]
-        onSetArea: activeArea = num
+
+        onSetArea: root.goTo(num)
     }
 
     function goTo(num) {
