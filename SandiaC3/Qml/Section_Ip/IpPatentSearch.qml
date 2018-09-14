@@ -14,20 +14,35 @@ PageDefault
     {
         state: root.state
 
+        Rectangle
+        {
+            anchors.fill: page
+            color: "white"
+            opacity: 0.2
+        }
+
+        AppText
+        {
+            color: "black"
+            font.pixelSize: parent.height / 14
+            text: "Loading..."
+            font.capitalization: Font.SmallCaps
+            anchors.centerIn: page
+        }
+
         Item
         {
-            anchors.fill: parent
-            anchors.topMargin: 100
-            anchors.bottomMargin: 100
-            anchors.leftMargin: 200
-            anchors.rightMargin: 200
+            id: page
+            width: 2500
+            height: 1280
+            anchors.centerIn: parent
 
             clip: true
 
             WebEngineView
             {
                 id: webview
-                url: "https://vps.labworks.org/"
+                url: root.state === "SHOWING" ? "https://vps.labworks.org/" : ""
                 profile.offTheRecord: true
 
                 anchors.fill: parent

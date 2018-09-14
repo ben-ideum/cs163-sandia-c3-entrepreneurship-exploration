@@ -50,6 +50,8 @@ PageDefault
            y: 500
            defaultText: "name@example.com"
            fieldName: "E-mail"
+
+           isEmail: true
         }
 
         SignInDropdown
@@ -143,11 +145,38 @@ PageDefault
                 fontPrototype: Style.font_h1_bold
             }
 
+            AppText
+            {
+                id: confirm_text
+                anchors.left: parent.right
+                anchors.leftMargin: 46
+                height: parent.height
+                width: parent.width
+                verticalAlignment: Text.AlignVCenter
+                horizontalAlignment: Text.AlignHCenter
+                text: "Submitted!"
+                color: "white"
+                font.pixelSize: parent.height/3
+                fontPrototype: Style.font_h1_bold
+                opacity: 0
+
+                NumberAnimation
+                {
+                    id: confirm_anim
+                    target: confirm_text
+                    property: "opacity"
+                    from: 1
+                    to: 0
+                    duration: 1500
+                }
+            }
+
             MouseArea
             {
                 anchors.fill: parent
                 onClicked:
                 {
+                    root.forceActiveFocus()
                     if (page.all_good) {
                         backend.dumpVisitorInfo(first_name.entry+"\t"+last_name.entry+"\t"+e_mail.entry+"\t"+visitor_type.choice+"\t"+us_citizen.citizen+"\t"+citizenships.entry)
                         first_name.inputArea.text = ""
@@ -156,6 +185,7 @@ PageDefault
                         visitor_type.choice = ""
                         us_citizen.citizen = false
                         citizenships.inputArea.text = ""
+                        confirm_anim.start()
                     } else {
                         alert.start()
                         if (!first_name.valid) {

@@ -53,13 +53,11 @@ QVariantList parseEvents(QString path) {
 
 int main(int argc, char *argv[])
 {
-    qputenv("QT_IM_MODULE", QByteArray("qtvirtualkeyboard"));
+//    qputenv("QT_IM_MODULE", QByteArray("qtvirtualkeyboard"));
 
 #if defined(Q_OS_WIN)
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 #endif
-
-    BackendFunctions * backend = new BackendFunctions();
 
     QGuiApplication app(argc, argv);
 
@@ -70,6 +68,8 @@ int main(int argc, char *argv[])
 
     engine.rootContext()->setContextProperty("eventList", parseEvents(desktopPath+"/content/"));
     engine.rootContext()->setContextProperty("contentPath", "file:///"+desktopPath+"/content/");
+
+    BackendFunctions * backend = new BackendFunctions(desktopPath+"/content/");
     engine.rootContext()->setContextProperty("backend", backend);
 
     engine.load(QUrl(QStringLiteral("qrc:/Qml/main.qml")));

@@ -6,6 +6,7 @@ import "../.."
 Rectangle {
     property string defaultText: "Required"
     property string fieldName: "First Name"
+    property bool isEmail: false
 
     readonly property TextInput inputArea: inpt
 
@@ -30,9 +31,20 @@ Rectangle {
         font.pixelSize: parent.height/3.5
         verticalAlignment: Text.AlignVCenter
         cursorVisible: true
-        onFocusChanged: if (focus) { error_anim.stop() }
-    }
+        onFocusChanged: if (focus) { error_anim.stop() } else { test() }
 
+        onAccepted: test()
+
+        function test() {
+            if (root.isEmail) {
+                var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                if (!inpt.text.match(re)) {
+                    inpt.text = ""
+                    root.throwError("Please enter a valid e-mail...");
+                }
+            }
+        }
+    }
     Rectangle
     {
         anchors.right: parent.left
