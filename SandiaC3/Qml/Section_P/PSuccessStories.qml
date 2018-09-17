@@ -25,6 +25,8 @@ PageDefault
         {
             id: success_model
             ListElement { px: 196; py: 641 }
+            ListElement { px: 196; py: 1031 }
+            ListElement { px: 196; py: 1321 }
             ListElement { px: 955; py: 641 }
             ListElement { px: 955; py: 1109 }
             ListElement { px: 955; py: 1472 }
@@ -45,6 +47,12 @@ PageDefault
                 {
                     source: "../../assets/p/success-text-"+(index+1)+".png"
                     y: -parent.inOutState * 100
+
+                    MouseArea
+                    {
+                        anchors.fill: parent
+                        onClicked: carousel.activeElement = index
+                    }
                 }
             }
         }

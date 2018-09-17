@@ -74,7 +74,7 @@ FadeState {
 
             Image {
                 anchors.centerIn: parent
-                source: "../icon-play.png"
+                source: "../../assets/icon-play.png"
 
                 fillMode: Image.PreserveAspectFit
                 height: parent.height/5
@@ -103,7 +103,7 @@ FadeState {
             fillMode: Image.PreserveAspectFit
             height: parent.height*2/3
             width: height
-            source: "../icon-rewind.png"
+            source: "../../assets/icon-rewind.png"
 
             MouseArea
             {
@@ -119,7 +119,7 @@ FadeState {
             fillMode: Image.PreserveAspectFit
             height: parent.height*2/3
             width: height
-            source: "../icon-skip.png"
+            source: "../../assets/icon-skip.png"
 
             MouseArea
             {

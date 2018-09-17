@@ -29,8 +29,8 @@ PageDefault
         Image
         {
             width: parent.width
-            anchors.bottom: parent.bottom
-            fillMode: Image.PreserveAspectFit
+            anchors.centerIn: parent
+            fillMode: Image.PreserveAspectCrop
             source: "../../assets/office-hours-background.png"
         }
 

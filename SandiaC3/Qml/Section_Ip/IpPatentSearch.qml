@@ -50,6 +50,28 @@ PageDefault
                 audioMuted: root.state === "HIDDEN"
             }
         }
+
+        Rectangle
+        {
+            anchors.fill: close_btn
+            anchors.margins: -2
+            color: "black"
+            radius: height/2
+        }
+
+        Image {
+            id: close_btn
+            source: "../../assets/close-button.png"
+            anchors.verticalCenter: page.top
+            anchors.horizontalCenter: page.right
+
+            MouseArea
+            {
+                anchors.fill: parent
+                anchors.margins: -parent.height/4
+                onClicked: root.homeClicked()
+            }
+        }
     }
 
     onHidden: webview.reload()

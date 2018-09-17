@@ -13,6 +13,8 @@ FadeState {
 
     anchors.fill: parent
 
+    signal closeItUpTheTour()
+
     Rectangle
     {
         anchors.fill: parent
@@ -51,7 +53,7 @@ FadeState {
     {
         anchors.fill: tour_box
         fillMode: Image.PreserveAspectCrop
-        source: "../tour-loading.png"
+        source: "../../assets/tour-loading.png"
     }
 
     Item
@@ -75,6 +77,28 @@ FadeState {
             y: -60
 
             audioMuted: root.state === "HIDDEN"
+        }
+    }
+
+    Rectangle
+    {
+        anchors.fill: close_btn
+        anchors.margins: -2
+        color: "black"
+        radius: height/2
+    }
+
+    Image {
+        id: close_btn
+        source: "../../assets/close-button.png"
+        anchors.verticalCenter: tour_box.top
+        anchors.horizontalCenter: tour_box.right
+
+        MouseArea
+        {
+            anchors.fill: parent
+            anchors.margins: -parent.height/4
+            onClicked: root.closeItUpTheTour()
         }
     }
 }

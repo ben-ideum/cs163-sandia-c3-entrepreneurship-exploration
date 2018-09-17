@@ -12,6 +12,10 @@ Item {
 
     id: root
 
+    signal activate()
+
+    onActivate: inpt.forceActiveFocus()
+
     AppText
     {
         fontPrototype: Style.font_p

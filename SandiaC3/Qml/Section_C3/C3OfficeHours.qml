@@ -9,8 +9,31 @@ PageDefault
 
     id: root
 
+    PageHeader
+    {
+        AppText
+        {
+            fontPrototype: Style.font_p
+
+            horizontalAlignment: Text.AlignHCenter
+
+            state: root.state
+            delay: 200
+
+            font.pixelSize: 60
+            lineHeight: 1.1
+            anchors.verticalCenter: parent.verticalCenter
+            anchors.verticalCenterOffset: - inOutState * 100 + 50
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.horizontalCenterOffset: parent.width/5
+
+            text: "Open to the public<br>Monday-Friday<br>9:00 a.m.- 4:00 p.m.<br>"
+        }
+    }
+
     PageBody
     {
+        id: body
         clip: true
         state: root.state
 
@@ -23,67 +46,50 @@ PageDefault
         Image
         {
             width: parent.width
-            anchors.bottom: parent.bottom
-            fillMode: Image.PreserveAspectFit
+            anchors.centerIn: parent
+            fillMode: Image.PreserveAspectCrop
             source: "../../assets/office-hours-background.png"
         }
 
-        Flickable
+        Grid
         {
-            anchors.fill: parent
-            contentHeight: headerText_1.contentHeight + 160
+            id: grid
+            property int textWidth: (parent.width-spacing*5)/4
+            columns: 4
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.top: parent.top
+            anchors.topMargin: 140
+            spacing: 200
 
-            AppText
+            Repeater
             {
-                id: headerText_1
-                fontPrototype: Style.font_p
-                text: "<strong>Open to the Public</strong><br>
-    <i>Monday-Friday</i><br>
-    9:00 a.m.- 4:00 p.m.<br>
-    <br>
-    Economic Development<br>
-    <i>Monday-Friday</i><br>
-    9:00 am-4:00pm<br>
-    <br>
-    Government Relations<br>
-    <i>Tuesday</i><br>
-    2-4:00 pm<br>
-    <br>
-    Licensing<br>
-    <i>First Tuesday</i><br>
-    9:00am-11:00 am<br>
+                model: officeHours
 
-    Partnership Agreements<br>
-    <i>Wednesday</i><br>
-    9:30 am-11:30am (SPP)<br>
-    <br>
-    Community Involvement<br>
-    <i>Third Wednesday</i><br>
-    1-4:00 pm<br>
-    <br>
-    NMSBA Program<br>
-    <i>Thursday</i><br>
-    1-4:00 pm<br>
-    <br>
-    Supplier Diversity<br>
-    <i>First Thursday</i><br>
-    9am-1:00 pm<br>
-    <i>Third Thursday</i><br>
-    12:00-4:00pm<br>
-    <br>
-    Principle Investigators<br>
-    <i>By Appointment</i>"
-                color: "black"
-                horizontalAlignment: Text.AlignHCenter
+                Column
+                {
+                    width: grid.textWidth
+                    AppText
+                    {
+                        width: parent.width
+                        text: modelData.service
+                        color: Style.orange
+                        fontPrototype: Style.font_p_bold
+                        font.pixelSize: 56
+                        horizontalAlignment: Text.AlignHCenter
+                        verticalAlignment: Text.AlignVCenter
+                    }
 
-                state: root.state
-                delay: 200
-
-                font.pixelSize: 100
-                lineHeight: 1.3
-                anchors.topMargin: font.pixelSize * (1.0 - inOutState)
-                anchors.top: parent.top
-                anchors.horizontalCenter: parent.horizontalCenter
+                    AppText
+                    {
+                        width: parent.width
+                        text: modelData.hours
+                        color: "black"
+                        fontPrototype: Style.font_p_book
+                        font.pixelSize: 56
+                        horizontalAlignment: Text.AlignHCenter
+                        lineHeight: 1.1
+                    }
+                }
             }
         }
     }

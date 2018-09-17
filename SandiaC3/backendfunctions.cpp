@@ -1,9 +1,13 @@
 #include "backendfunctions.h"
 
+#include <QDebug>
+
 #include <QFile>
 #include <QTextStream>
-#include <QDebug>
+
 #include <QDate>
+#include <QDateTime>
+
 #include <QFileInfo>
 #include <QDir>
 
@@ -28,14 +32,15 @@ BackendFunctions::BackendFunctions(QString contentPath) : QObject(0)
 
 void BackendFunctions::dumpVisitorInfo(QString entry)
 {
+    QString time = QDateTime::currentDateTime().toString("dd\tHH:mm:ss");
     QString filename = QDate::currentDate().toString("yyyy-MMMM");
     filename += "-guesbook.tsv";
 
     QFile file(m_guestbook_path + filename);
     if (file.open(QIODevice::WriteOnly | QIODevice::Append)) {
         QTextStream stream(&file);
-        stream << entry;
-        qDebug() << "INFO: dumped entry " << entry;
+        stream << time + "\t" + entry + "\n";
+        qDebug() << "INFO: dumped entry " << time + "\t" + entry + "\n";
         file.close();
     } else {
         qDebug() << "ERROR: Could not open file " << filename;

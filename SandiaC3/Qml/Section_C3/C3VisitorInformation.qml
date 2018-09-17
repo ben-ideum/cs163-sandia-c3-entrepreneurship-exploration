@@ -30,6 +30,7 @@ PageDefault
            property bool valid: entry !== ""
            x: 536
            y: 100
+           onGoNext: last_name.activate()
         }
 
         SignInField
@@ -40,6 +41,7 @@ PageDefault
            y: 300
            defaultText: "Required"
            fieldName: "Last Name"
+           onGoNext: e_mail.activate()
         }
 
         SignInField
@@ -52,6 +54,7 @@ PageDefault
            fieldName: "E-mail"
 
            isEmail: true
+           onGoNext: citizenships.activate()
         }
 
         SignInDropdown

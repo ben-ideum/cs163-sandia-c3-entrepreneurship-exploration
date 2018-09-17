@@ -51,6 +51,37 @@ QVariantList parseEvents(QString path) {
     return events;
 }
 
+
+QVariantList parseHours(QString path) {
+    QVariantList hours;
+    path += "office_hours.tsv";
+    if (!QFileInfo::exists(path)) {
+        qDebug() << "INFO: Couldn't find file " << path;
+        return hours;
+    }
+    QFile file(path);
+    if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        QTextStream stream(&file);
+        QString line = stream.readLine();
+        while (!stream.atEnd()) {
+            line = stream.readLine();
+            QStringList entries = line.split("\t");
+            if (entries.length() < 2) {
+                qDebug() << "WARNING: not enough entries for line...";
+                qDebug() << "         "+line;
+                continue;
+            }
+            QVariantMap map;
+            map["service"] = entries[0];
+            map["hours"]   = entries[1];
+            hours << map;
+        }
+    } else {
+        qDebug() << "WARNING: Could not open file " << path;
+    }
+    return hours;
+}
+
 int main(int argc, char *argv[])
 {
 //    qputenv("QT_IM_MODULE", QByteArray("qtvirtualkeyboard"));
@@ -67,6 +98,7 @@ int main(int argc, char *argv[])
     QtWebEngine::initialize();
 
     engine.rootContext()->setContextProperty("eventList", parseEvents(desktopPath+"/content/"));
+    engine.rootContext()->setContextProperty("officeHours", parseHours(desktopPath+"/content/"));
     engine.rootContext()->setContextProperty("contentPath", "file:///"+desktopPath+"/content/");
 
     BackendFunctions * backend = new BackendFunctions(desktopPath+"/content/");

@@ -82,6 +82,8 @@ UfPopupScreen
 -Reduce turbine-to-turbine interaction and wind plant underperformance,
 -Develop advanced wind turbine rotors, and
 -Improve the validity of advanced simulation models."
+
+        onCloseItUpTheTour: root.stopTour()
     }
 
     onGoTour: tour.state = "SHOWING"

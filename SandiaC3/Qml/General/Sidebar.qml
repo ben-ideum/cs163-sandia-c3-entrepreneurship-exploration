@@ -47,7 +47,7 @@ Rectangle {
         Rectangle
         {
             id: header
-            height: root.height * 0.04
+            height: root.height * 0.06
             width: parent.width
             color: Style.slate
 
@@ -82,13 +82,7 @@ Rectangle {
 
                 MouseArea
                 {
-                    anchors.fill: menu_buttons
-                    onClicked: GlobalSignals.goHome()
-                }
-
-                MouseArea
-                {
-                    anchors.fill: menu_buttons
+                    anchors.fill: parent
                     onClicked: GlobalSignals.goHome()
                 }
             }
@@ -96,7 +90,7 @@ Rectangle {
 
         Rectangle
         {
-            height: header.height * 2 / 3
+            height: header.height / 2
             width: parent.width
             color: Style.charcoal
         }

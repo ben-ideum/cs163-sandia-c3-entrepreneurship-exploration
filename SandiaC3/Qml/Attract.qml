@@ -32,8 +32,7 @@ FadeState {
     Item
     {
         id: partnership
-        x: 438
-        y: 193 + 234 + 9
+        x: 438; y: 193 + 234 + 9
 
         Column
         {
@@ -56,8 +55,8 @@ FadeState {
     Item
     {
         id: awards
-        x: 438 + 234 + 9
-        y: 193 + 234 + 9
+        x: 438 + 234 + 9; y: 193 + 234 + 9
+
         Column
         {
             spacing: 9

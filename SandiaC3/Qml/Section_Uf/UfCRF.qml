@@ -91,6 +91,8 @@ UfPopupScreen
         tourText: "As an Office of Science collaborative research facility, a key aspect of the CRFs mission is to encourage the direct involvement of individuals, or “collaborators,” from the scientific community. Located in Livermore, California the CRF hosts more than 100 collaborators each year, who work side-by-side with staff researchers to develop new research methods and approaches, conduct experiments exploiting new facilities and techniques, and solve high-priority combustion problems.
 
 The CRF emphasizes collaborative investigations that lead to openly published results, but other models for supporting proprietary research can be arranged."
+
+        onCloseItUpTheTour: crf.stopTour()
     }
 
     onGoTour: tour.state = "SHOWING"

@@ -109,6 +109,85 @@ Window {
                 ip.state = "SHOWING"
                 ip.goTo(num)
             }
+
+
+            Rectangle
+            {
+                property bool expanded: false
+                anchors.bottom: parent.bottom
+                anchors.bottomMargin: expanded ? 140 : 0
+                Behavior on anchors.bottomMargin { NumberAnimation { duration: 200 } }
+
+                x: 100
+                width: 60
+                height: 60
+                color: Qt.rgba(0,0,0,expanded ? 0 : 0.3)
+                Behavior on color { ColorAnimation { duration: 200 } }
+
+                FadeState
+                {
+                    id: move_up_btn
+                    state: parent.expanded ? "HIDDEN" : "SHOWING"
+                    anchors.centerIn: parent
+                    Image {
+                        anchors.centerIn: parent
+                        source: "../assets/expand-up.png"
+                        scale: 0.6
+                    }
+                }
+
+                FadeState
+                {
+                    id: move_down_btn
+                    state: parent.expanded ? "SHOWING" : "HIDDEN"
+                    anchors.centerIn: parent
+                    Image {
+                        anchors.centerIn: parent
+                        rotation: 180
+                        source: "../assets/expand-up.png"
+                        scale: 0.6
+                    }
+                }
+
+                Rectangle
+                {
+                    opacity: move_down_btn.opacity
+                    width: 950
+                    height: 200
+                    color: Qt.rgba(0,0,0,0.3)
+
+                    Image {
+                        id: logo
+                        source: "../assets/sandia-logo.png"
+                        anchors.verticalCenter: parent.verticalCenter
+                        x: 40
+                        height: parent.height-80
+                        fillMode: Image.PreserveAspectFit
+                        opacity: 0.75
+                    }
+
+                    AppText
+                    {
+                        anchors.left: logo.right
+                        anchors.leftMargin: 40
+                        anchors.verticalCenter: parent.verticalCenter
+                        height: parent.height-80
+                        anchors.right: parent.right
+                        anchors.rightMargin: 40
+                        wrapMode: Text.Wrap
+                        opacity: 0.5
+                        font.pixelSize: 50
+                        fontSizeMode: Text.Fit
+                        text: "Sandia National Laboratories is a multimission laboratory managed and operated by National Technology and Engineering Solutions of Sandia, LLC., a wholly owned subsidiary of Honeywell International, Inc., for the U.S. Department of Energy's National Nuclear Security Agency."
+                    }
+
+                    MouseArea
+                    {
+                        anchors.fill: parent
+                        onClicked: parent.parent.expanded = !parent.parent.expanded
+                    }
+                }
+            }
         }
     }
 

@@ -36,10 +36,10 @@ Item {
             if (flick) { return }
             var dt = Date.now() - time
             var vx = (mouse.x-px) * 1000 / dt
-            if (vx > width/2) {
+            if (vx > width/4) {
                 flick = true
                 root.back()
-            } else if (vx < -width/2) {
+            } else if (vx < -width/4) {
                 flick = true
                 root.forward()
             }

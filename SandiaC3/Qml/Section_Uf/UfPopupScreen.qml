@@ -43,6 +43,12 @@ PageBody {
         delay: 400
     }
 
+    MouseArea
+    {
+        anchors.fill: parent
+        onClicked: root.close()
+    }
+
     Rectangle
     {
         id: tie_line

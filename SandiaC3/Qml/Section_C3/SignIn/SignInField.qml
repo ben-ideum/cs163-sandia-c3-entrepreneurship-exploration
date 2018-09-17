@@ -20,6 +20,10 @@ Rectangle {
     color: "white"
 
     signal throwError(string error)
+    signal activate()
+    signal goNext()
+
+    onActivate: inpt.forceActiveFocus()
 
     TextInput
     {
@@ -32,6 +36,8 @@ Rectangle {
         verticalAlignment: Text.AlignVCenter
         cursorVisible: true
         onFocusChanged: if (focus) { error_anim.stop() } else { test() }
+
+        Keys.onTabPressed: root.goNext()
 
         onAccepted: test()
 
