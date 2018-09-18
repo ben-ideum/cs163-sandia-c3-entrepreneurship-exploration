@@ -9,7 +9,7 @@ Rectangle {
 
     property string choice: ""
 
-    property string otherChoice: ""
+    property alias otherChoice: other_choice.text
 
     id: root
 

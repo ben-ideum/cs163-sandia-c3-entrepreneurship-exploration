@@ -97,11 +97,13 @@ int main(int argc, char *argv[])
     QQmlApplicationEngine engine;
     QtWebEngine::initialize();
 
-    engine.rootContext()->setContextProperty("eventList", parseEvents(desktopPath+"/content/"));
-    engine.rootContext()->setContextProperty("officeHours", parseHours(desktopPath+"/content/"));
-    engine.rootContext()->setContextProperty("contentPath", "file:///"+desktopPath+"/content/");
+    engine.rootContext()->setContextProperty("eventList", parseEvents(desktopPath+"/entrepreneurship-content/"));
+    engine.rootContext()->setContextProperty("officeHours", parseHours(desktopPath+"/entrepreneurship-content/"));
+    engine.rootContext()->setContextProperty("userContent", "file:///"+desktopPath+"/entrepreneurship-content/");
+    engine.rootContext()->setContextProperty("appContent", "file:///"+QDir::currentPath()+"/content/");
 
-    BackendFunctions * backend = new BackendFunctions(desktopPath+"/content/");
+
+    BackendFunctions * backend = new BackendFunctions(QDir::currentPath()+"/content/",desktopPath+"/entrepreneurship-content/");
     engine.rootContext()->setContextProperty("backend", backend);
 
     engine.load(QUrl(QStringLiteral("qrc:/Qml/main.qml")));

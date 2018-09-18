@@ -16,7 +16,7 @@ void BackendFunctions::logError()
     qDebug() << "INFO: Process failed with error " << m_process.errorString();
 }
 
-BackendFunctions::BackendFunctions(QString contentPath) : QObject(0)
+BackendFunctions::BackendFunctions(QString contentPath, QString userPath) : QObject(0)
 {
     QObject::connect(&m_process, SIGNAL(finished(int)), this, SIGNAL(processDone()));
     QObject::connect(&m_process, SIGNAL(error(QProcess::ProcessError)), this, SIGNAL(processDone()));
@@ -25,9 +25,9 @@ BackendFunctions::BackendFunctions(QString contentPath) : QObject(0)
     m_presentation_path = loadPathFromFile(contentPath+"/paths/presentation.txt");
     m_whiteboard_path = loadPathFromFile(contentPath+"/paths/whiteboard.txt");
 
-    m_guestbook_path = contentPath + "/signin/";
-    QDir dir(contentPath);
-    dir.mkpath("signin");
+    m_guestbook_path = userPath + "/guestbook/";
+    QDir dir(userPath);
+    dir.mkpath("guestbook");
 }
 
 void BackendFunctions::dumpVisitorInfo(QString entry)

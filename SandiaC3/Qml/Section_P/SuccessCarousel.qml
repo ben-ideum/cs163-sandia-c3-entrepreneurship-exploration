@@ -67,7 +67,7 @@ Item {
             state: root.activeElement === index ? "SHOWING" : "HIDDEN"
 
             Image {
-                source: contentPath + "/successes/success-"+(index+1)+".png"
+                source: appContent + "/successes/success-"+(index+1)+".png"
                 anchors.centerIn: parent
                 anchors.horizontalCenterOffset: parent.linearState * 250 * (parent.toRight ? 1 : -1)
                 width: parent.width

@@ -15,7 +15,7 @@ private slots:
     void logError();
 
 public:
-    BackendFunctions(QString contentPath);
+    BackendFunctions(QString contentPath, QString userPath);
 
     Q_INVOKABLE void dumpVisitorInfo(QString entry);
 

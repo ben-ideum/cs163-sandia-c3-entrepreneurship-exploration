@@ -46,7 +46,7 @@ PageDefault
 
                 Image {
                     id: img1
-                    source: contentPath+"/consortium-awards/consortium-awards-1.png"
+                    source: appContent+"/consortium-awards/consortium-awards-1.png"
                     x: parent.inOutState * 100
                 }
             }
@@ -60,7 +60,7 @@ PageDefault
 
                 Image {
                     id: img2
-                    source: contentPath+"/consortium-awards/consortium-awards-2.png"
+                    source: appContent+"/consortium-awards/consortium-awards-2.png"
                     x: parent.inOutState * 100
                 }
             }

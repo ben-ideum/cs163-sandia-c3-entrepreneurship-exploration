@@ -54,7 +54,7 @@ FadeState {
         Video
         {
             id: video
-            source: root.videoName === "" ? "" : contentPath+"rd100-videos/"+root.videoName+".mp4"
+            source: root.videoName === "" ? "" : appContent+"rd100-videos/"+root.videoName+".mp4"
             autoLoad: true
             autoPlay: false
             anchors.fill: parent

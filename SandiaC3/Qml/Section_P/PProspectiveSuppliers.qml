@@ -65,7 +65,7 @@ PageDefault
             delay: 800
 
             Image {
-                source: contentPath+"/suppliers/prospective-suppliers-2.png"
+                source: appContent+"/suppliers/prospective-suppliers-2.png"
                 x: -parent.inOutState * 100
             }
         }

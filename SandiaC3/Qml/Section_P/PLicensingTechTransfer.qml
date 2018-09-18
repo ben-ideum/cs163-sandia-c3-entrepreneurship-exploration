@@ -53,7 +53,7 @@ PageDefault
 
             Image
             {
-                source: contentPath+"tech-transfer/tech-transfer-0.png"
+                source: appContent+"tech-transfer/tech-transfer-0.png"
                 y: -parent.inOutState * 100
             }
         }
@@ -78,7 +78,7 @@ PageDefault
                     Image
                     {
                         id: img
-                        source: contentPath+"tech-transfer/tech-transfer-"+(index+1)+".png"
+                        source: appContent+"tech-transfer/tech-transfer-"+(index+1)+".png"
                         x: -parent.inOutState * 100
                     }
                 }

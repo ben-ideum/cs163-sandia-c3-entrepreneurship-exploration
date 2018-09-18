@@ -208,11 +208,16 @@ PageDefault
             function submit() {
                 root.forceActiveFocus()
                 if (page.all_good) {
-                    backend.dumpVisitorInfo(first_name.entry+"\t"+last_name.entry+"\t"+e_mail.entry+"\t"+visitor_type.choice+"\t"+us_citizen.citizen+"\t"+citizenships.entry)
+                    var typ = visitor_type.choice;
+                    if (typ == "Other") {
+                        typ += ": "+visitor_type.otherChoice
+                    }
+                    backend.dumpVisitorInfo(first_name.entry+"\t"+last_name.entry+"\t"+e_mail.entry+"\t"+typ+"\t"+us_citizen.citizen+"\t"+citizenships.entry)
                     first_name.inputArea.text = ""
                     last_name.inputArea.text = ""
                     e_mail.inputArea.text = ""
                     visitor_type.choice = ""
+                    visitor_type.otherChoice = ""
                     us_citizen.citizen = false
                     citizenships.inputArea.text = ""
                     confirm_anim.start()

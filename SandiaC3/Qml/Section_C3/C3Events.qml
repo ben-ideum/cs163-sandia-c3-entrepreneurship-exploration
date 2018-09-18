@@ -101,7 +101,7 @@ PageDefault
                                 clip: true
 
                                 Image {
-                                    source: contentPath+modelData.image
+                                    source: userContent+modelData.image
                                     anchors.centerIn: parent
                                     width: parent.width
                                     height: parent.height
