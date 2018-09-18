@@ -73,41 +73,69 @@ Window {
         {
             id: attract
             anchors.fill: parent
+            enabled: !transition.running && state === "SHOWING"
 
             state: "SHOWING"
 
+            SequentialAnimation
+            {
+                property var target: c3
+                property int targetNum: 0
+
+                id: transition
+
+                ScriptAction
+                {
+                    script: attract.activeSection = transition.targetNum
+                }
+                PauseAnimation { duration: 800 }
+                ScriptAction
+                {
+                    script: {
+                        attract.state = "HIDDEN"
+                        transition.target.state = "SHOWING"
+                        transition.target.goHome()
+                    }
+                }
+                PauseAnimation { duration: 400 }
+                ScriptAction
+                {
+                    script: attract.activeSection = -1
+                }
+            }
+
             onGoC3:
             {
-                if (num == 4) {
-                    c3.launchPresentation()
-                } else if (num === 5) {
-                    c3.launchWhiteboard()
-                } else {
-                    state = "HIDDEN"
-                    c3.state = "SHOWING"
-                    c3.goTo(num)
-                }
+//                if (num == 4) {
+//                    c3.launchPresentation()
+//                } else if (num === 5) {
+//                    c3.launchWhiteboard()
+//                } else {
+                    transition.target = c3
+                    transition.targetNum = 1
+                    transition.start()
+//                }
             }
 
             onGoPartnerships:
             {
-                state = "HIDDEN"
-                p.state = "SHOWING"
-                p.goTo(num)
+                transition.target = p
+                transition.targetNum = 0
+                transition.start()
             }
 
             onGoMap:
             {
-                state = "HIDDEN"
-                uf.state = "SHOWING"
-                uf.goTour(num)
+                transition.target = uf
+                transition.targetNum = 2
+                transition.start()
             }
 
             onGoIp:
             {
-                state = "HIDDEN"
-                ip.state = "SHOWING"
-                ip.goTo(num)
+                transition.target = ip
+                transition.targetNum = 3
+                transition.start()
             }
 
 

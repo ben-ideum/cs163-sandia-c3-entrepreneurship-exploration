@@ -39,6 +39,12 @@ FadeState {
             fillMode: Image.PreserveAspectFit
             x: parent.height/4
             anchors.verticalCenter: parent.verticalCenter
+
+            MouseArea
+            {
+                anchors.fill: parent
+                onClicked: GlobalSignals.goHome()
+            }
         }
 
         Image
@@ -72,6 +78,12 @@ FadeState {
             anchors.verticalCenter: parent.verticalCenter
 
             source: "../../assets/section-c3-logo.png"
+
+            MouseArea
+            {
+                anchors.fill: parent
+                onClicked: GlobalSignals.goHome()
+            }
 
         }
     }

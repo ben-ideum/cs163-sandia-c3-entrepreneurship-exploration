@@ -113,5 +113,37 @@
         <file>assets/icon-skip.png</file>
         <file>assets/tour-loading.png</file>
         <file>assets/expand-up.png</file>
+        <file>assets/attract/partnerships/partnerships-01.png</file>
+        <file>assets/attract/partnerships/partnerships-02.png</file>
+        <file>assets/attract/partnerships/partnerships-03.png</file>
+        <file>assets/attract/partnerships/partnerships-04.png</file>
+        <file>assets/attract/partnerships/partnerships-05.png</file>
+        <file>assets/attract/partnerships/partnerships-06.png</file>
+        <file>assets/attract/partnerships/partnerships-07.png</file>
+        <file>assets/attract/c3/c3-01.png</file>
+        <file>assets/attract/c3/c3-02.png</file>
+        <file>assets/attract/c3/c3-03.png</file>
+        <file>assets/attract/c3/c3-04.png</file>
+        <file>assets/attract/c3/c3-05.png</file>
+        <file>assets/attract/map/map-00.png</file>
+        <file>assets/attract/map/map-01.png</file>
+        <file>assets/attract/map/map-02.png</file>
+        <file>assets/attract/map/map-03.png</file>
+        <file>assets/attract/map/map-04.png</file>
+        <file>assets/attract/map/map-05.png</file>
+        <file>assets/attract/map/map-06.png</file>
+        <file>assets/attract/patents/patents-01.png</file>
+        <file>assets/attract/patents/patents-02.png</file>
+        <file>assets/attract/patents/patents-03.png</file>
+        <file>assets/attract/patents/patents-04.png</file>
+        <file>assets/attract/patents/patents-05.png</file>
+        <file>assets/attract/patents/patents-06.png</file>
+        <file>assets/attract/patents/patents-07.png</file>
+        <file>assets/attract/patents/patents-08.png</file>
+        <file>assets/attract/ip/ip-01.png</file>
+        <file>assets/attract/ip/ip-02.png</file>
+        <file>assets/attract/ip/ip-03.png</file>
+        <file>assets/attract/key.png</file>
+        <file>assets/attract/home/home-01.png</file>
     </qresource>
 </RCC>

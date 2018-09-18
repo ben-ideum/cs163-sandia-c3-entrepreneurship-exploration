@@ -16,7 +16,7 @@ FadeState {
     C3Landing
     {
         id: landing
-        state: sidebar.activeArea === root.fields.indexOf(this) ? "SHOWING" : "HIDDEN"
+        state: sidebar.activeArea === root.fields.indexOf(this) && root.state === "SHOWING" ? "SHOWING" : "HIDDEN"
 
         onGo: root.goTo(num-9)
         onMenuClicked: sidebar.show()

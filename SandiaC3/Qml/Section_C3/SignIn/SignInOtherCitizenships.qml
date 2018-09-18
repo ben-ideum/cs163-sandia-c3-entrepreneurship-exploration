@@ -13,6 +13,7 @@ Item {
     id: root
 
     signal activate()
+    signal goNext()
 
     onActivate: inpt.forceActiveFocus()
 
@@ -32,6 +33,14 @@ Item {
         y: 80
     }
 
+    Rectangle
+    {
+        anchors.fill: box
+        color: Style.orange
+        opacity: inpt.focus ? 0.16 : 0.0
+        Behavior on opacity { NumberAnimation { duration: 200 } }
+    }
+
     TextInput
     {
         id: inpt
@@ -41,6 +50,8 @@ Item {
         color: Style.orange
         font.pixelSize: 40
         cursorVisible: focus
+
+        Keys.onTabPressed: root.goNext()
     }
 
     AppText

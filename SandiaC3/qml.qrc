@@ -50,5 +50,6 @@
         <file>Qml/Section_C3/SignIn/SignInDropdown.qml</file>
         <file>Qml/Section_C3/SignIn/SignInUSCitizen.qml</file>
         <file>Qml/Section_C3/SignIn/SignInOtherCitizenships.qml</file>
+        <file>Qml/AttractElement.qml</file>
     </qresource>
 </RCC>

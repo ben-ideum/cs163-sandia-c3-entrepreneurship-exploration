@@ -14,7 +14,7 @@ FadeState {
     PLanding
     {
         id: landing
-        state: sidebar.activeArea === root.fields.indexOf(this) ? "SHOWING" : "HIDDEN"
+        state: sidebar.activeArea === root.fields.indexOf(this) && root.state === "SHOWING" ? "SHOWING" : "HIDDEN"
 
         onMenuClicked: sidebar.show()
         onGo: root.goTo(num)

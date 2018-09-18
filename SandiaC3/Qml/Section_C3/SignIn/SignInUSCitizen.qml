@@ -8,6 +8,11 @@ Item {
 
     id: root
 
+    signal activate()
+    signal goNext()
+
+    onActivate: yes_btn.forceActiveFocus()
+
     AppText
     {
         fontPrototype: Style.font_p
@@ -43,6 +48,26 @@ Item {
                 radius: 13
                 color: "white"
             }
+
+            Rectangle
+            {
+                anchors.fill: parent
+                anchors.margins: -20
+                opacity: 0.3
+                color: "transparent"
+                border.width: 2
+                border.color: Style.orange
+                visible: parent.focus
+                anchors.rightMargin: -150
+            }
+
+            Keys.onDownPressed: no_btn.forceActiveFocus()
+
+            Keys.onUpPressed: no_btn.forceActiveFocus()
+
+            Keys.onReturnPressed: root.citizen = true
+
+            Keys.onTabPressed: root.goNext()
         }
 
         AppText
@@ -65,7 +90,7 @@ Item {
             anchors.bottom: yes_btn.bottom
             anchors.right: yes_txt.right
             anchors.margins: -20
-            onClicked: root.citizen = true
+            onClicked: { root.citizen = true; yes_btn.forceActiveFocus() }
         }
 
         Rectangle
@@ -89,6 +114,26 @@ Item {
                 radius: 13
                 color: "white"
             }
+
+            Rectangle
+            {
+                anchors.fill: parent
+                anchors.margins: -20
+                opacity: 0.3
+                color: "transparent"
+                border.width: 2
+                border.color: Style.orange
+                visible: parent.focus
+                anchors.rightMargin: -150
+            }
+
+            Keys.onDownPressed: yes_btn.forceActiveFocus()
+
+            Keys.onUpPressed: yes_btn.forceActiveFocus()
+
+            Keys.onReturnPressed: root.citizen = false
+
+            Keys.onTabPressed: root.goNext()
         }
 
         AppText
@@ -111,7 +156,7 @@ Item {
             anchors.bottom: no_btn.bottom
             anchors.right: no_txt.right
             anchors.margins: -20
-            onClicked: root.citizen = false
+            onClicked: { root.citizen = false; no_btn.forceActiveFocus() }
         }
     }
 }

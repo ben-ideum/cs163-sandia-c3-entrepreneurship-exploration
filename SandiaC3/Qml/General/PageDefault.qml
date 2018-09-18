@@ -8,6 +8,8 @@ FadeState {
     property string subTitle: ""
     property string icon_name: "c3_icon"
 
+    property bool defaultBack: true
+
     id: root
 
     enabled: opacity === 1.0
@@ -129,5 +131,5 @@ FadeState {
         }
     }
 
-    onBackClicked: GlobalSignals.goHome()
+    onBackClicked: if (root.defaultBack) { root.homeClicked() }
 }

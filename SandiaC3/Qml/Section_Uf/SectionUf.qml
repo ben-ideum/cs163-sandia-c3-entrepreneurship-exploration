@@ -14,12 +14,13 @@ FadeState {
     UfLanding
     {
         id: landing
+        defaultBack: false
         state: "SHOWING"
         bubbleState: sidebar.activeArea === root.fields.indexOf(this) ? "SHOWING" : "HIDDEN"
 
         onMenuClicked: sidebar.show()
         onGo: root.goTo(num)
-        onBackClicked: root.goBack()
+        onBackClicked: if (sidebar.activeArea == 0) { GlobalSignals.goHome() } else { root.goBack() }
         onHomeClicked: root.goHome()
     }
 

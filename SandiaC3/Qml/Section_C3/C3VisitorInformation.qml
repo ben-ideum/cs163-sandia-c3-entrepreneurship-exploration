@@ -18,10 +18,14 @@ PageDefault
 
         state: root.state
 
+        onStateChanged: if (state === "SHOWING") { page.forceActiveFocus() }
+
+        Keys.onTabPressed: first_name.activate()
+
         MouseArea
         {
             anchors.fill: parent
-            onClicked: forceActiveFocus()
+            onClicked: root.forceActiveFocus()
         }
 
         SignInField
@@ -54,7 +58,7 @@ PageDefault
            fieldName: "E-mail"
 
            isEmail: true
-           onGoNext: citizenships.activate()
+           onGoNext: visitor_type.activate()
         }
 
         SignInDropdown
@@ -63,6 +67,8 @@ PageDefault
             property bool valid: choice !== ""
             x: 536
             y: 700
+
+            onGoNext: us_citizen.activate()
         }
 
         SignInUSCitizen
@@ -70,6 +76,8 @@ PageDefault
             id: us_citizen
             x: 1550
             y: 220
+
+            onGoNext: citizenships.activate()
         }
 
         SignInOtherCitizenships
@@ -77,6 +85,8 @@ PageDefault
             id: citizenships
             x: 2435
             y: 220
+
+            onGoNext: submit_box.forceActiveFocus()
         }
 
         Rectangle
@@ -88,6 +98,17 @@ PageDefault
             width: 490
             height: 166
             radius: 4
+
+            Rectangle
+            {
+                anchors.fill: parent
+                anchors.margins: 20
+                color: "transparent"
+                border.color: Style.orange
+                border.width: 2
+                opacity: 0.5
+                visible: parent.focus
+            }
 
             SequentialAnimation
             {
@@ -177,32 +198,37 @@ PageDefault
             MouseArea
             {
                 anchors.fill: parent
-                onClicked:
-                {
-                    root.forceActiveFocus()
-                    if (page.all_good) {
-                        backend.dumpVisitorInfo(first_name.entry+"\t"+last_name.entry+"\t"+e_mail.entry+"\t"+visitor_type.choice+"\t"+us_citizen.citizen+"\t"+citizenships.entry)
-                        first_name.inputArea.text = ""
-                        last_name.inputArea.text = ""
-                        e_mail.inputArea.text = ""
-                        visitor_type.choice = ""
-                        us_citizen.citizen = false
-                        citizenships.inputArea.text = ""
-                        confirm_anim.start()
-                    } else {
-                        alert.start()
-                        if (!first_name.valid) {
-                            first_name.throwError("Enter your first name.")
-                        }
-                        if (!last_name.valid) {
-                            last_name.throwError("Enter your last name.")
-                        }
-                        if (!e_mail.valid) {
-                            e_mail.throwError("Enter a valid e-mail.")
-                        }
-                        if (!visitor_type.valid) {
-                            visitor_type.throwError("Select a visitor type.")
-                        }
+                onClicked: parent.submit()
+            }
+
+            Keys.onReturnPressed: submit()
+
+            Keys.onTabPressed: first_name.activate()
+
+            function submit() {
+                root.forceActiveFocus()
+                if (page.all_good) {
+                    backend.dumpVisitorInfo(first_name.entry+"\t"+last_name.entry+"\t"+e_mail.entry+"\t"+visitor_type.choice+"\t"+us_citizen.citizen+"\t"+citizenships.entry)
+                    first_name.inputArea.text = ""
+                    last_name.inputArea.text = ""
+                    e_mail.inputArea.text = ""
+                    visitor_type.choice = ""
+                    us_citizen.citizen = false
+                    citizenships.inputArea.text = ""
+                    confirm_anim.start()
+                } else {
+                    alert.start()
+                    if (!first_name.valid) {
+                        first_name.throwError("Enter your first name.")
+                    }
+                    if (!last_name.valid) {
+                        last_name.throwError("Enter your last name.")
+                    }
+                    if (!e_mail.valid) {
+                        e_mail.throwError("Enter a valid e-mail.")
+                    }
+                    if (!visitor_type.valid) {
+                        visitor_type.throwError("Select a visitor type.")
                     }
                 }
             }

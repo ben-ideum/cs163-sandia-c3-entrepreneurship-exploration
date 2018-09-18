@@ -9,6 +9,8 @@ Rectangle {
 
     property string choice: ""
 
+    property string otherChoice: ""
+
     id: root
 
     height: 115
@@ -17,14 +19,93 @@ Rectangle {
     color: "white"
 
     signal throwError(string error)
+    signal goNext()
+    signal activate()
+
+    onActivate: inpt.forceActiveFocus()
 
     MouseArea
     {
+        property int selection: choice_list.model.indexOf(root.choice)
+
         id: inpt
         anchors.fill: parent
         anchors.leftMargin: 46
         onClicked: if (!focus) { forceActiveFocus() } else { root.forceActiveFocus() }
         onFocusChanged: if (focus) { error_anim.stop(); }
+
+        Keys.onTabPressed:
+        {
+            if (root.choice === "Other") {
+                other_choice.forceActiveFocus()
+            } else {
+                root.goNext()
+            }
+        }
+
+        Keys.onReturnPressed:
+        {
+            if (root.choice === "Other") {
+                other_choice.forceActiveFocus()
+            } else {
+                root.goNext()
+            }
+        }
+
+        Keys.onDownPressed:
+        {
+            var tmp = inpt.selection
+            tmp = (tmp + 1) % choice_list.model.length
+            root.choice = choice_list.model[tmp]
+        }
+
+        Keys.onUpPressed:
+        {
+            var tmp = inpt.selection
+            tmp -= 1;
+            if (tmp < 0) { tmp += choice_list.model.length }
+            root.choice = choice_list.model[tmp]
+        }
+    }
+
+    Rectangle
+    {
+        anchors.fill: other_choice
+        color: Style.orange
+        opacity: other_choice.focus ? 0.16 : 0.0
+        Behavior on opacity { NumberAnimation { duration: 200 } }
+        anchors.topMargin: 10
+        anchors.bottomMargin: 10
+        anchors.rightMargin: 10
+        anchors.leftMargin: -40
+    }
+
+    TextInput
+    {
+        id: other_choice
+        font.family: tip_text.font.family
+        anchors.fill: parent
+        anchors.leftMargin: 206
+        color: Style.orange
+        font.pixelSize: parent.height/3.5
+        verticalAlignment: Text.AlignVCenter
+        cursorVisible: true
+        visible: root.choice === "Other"
+
+        Keys.onTabPressed: root.goNext()
+
+        Rectangle
+        {
+            anchors.fill: parent
+            color: "transparent"
+            border.width: 2
+            border.color: Style.slate
+            opacity: 0.5
+            anchors.topMargin: 10
+            anchors.bottomMargin: 10
+            anchors.rightMargin: 10
+            anchors.leftMargin: -40
+        }
     }
 
     AppText
@@ -60,6 +141,7 @@ Rectangle {
 
     AppText
     {
+        id: tip_text
         anchors.fill: parent
         anchors.leftMargin: 46
         horizontalAlignment: Text.AlignLeft
@@ -140,6 +222,7 @@ Rectangle {
             spacing: 40
             Repeater
             {
+                id: choice_list
                 model: ["Industry","Government","Education/School","Sandia Employee","Other"]
 
                 AppText

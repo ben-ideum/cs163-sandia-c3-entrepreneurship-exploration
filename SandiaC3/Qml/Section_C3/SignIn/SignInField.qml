@@ -25,6 +25,15 @@ Rectangle {
 
     onActivate: inpt.forceActiveFocus()
 
+    Rectangle
+    {
+        anchors.fill: inpt
+        color: Style.orange
+        opacity: inpt.focus ? 0.16 : 0.0
+        Behavior on opacity { NumberAnimation { duration: 200 } }
+        anchors.leftMargin: -46
+    }
+
     TextInput
     {
         id: inpt

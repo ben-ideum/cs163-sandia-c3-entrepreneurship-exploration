@@ -1,14 +1,14 @@
 import QtQuick 2.0
+import QtWebEngine 1.5
 
 import "../General"
 import ".."
 
 PageDefault
 {
-    property string bodyText: ""
-    property string col1Text: ""
-    property string col2Text: ""
     property string elementIcon: "lt-1"
+    property string website: ""
+    property bool reload: false
 
     pageTitle: "INTELLECTUAL PROPERTY"
     subTitle: ""
@@ -26,6 +26,24 @@ PageDefault
             color: Style.gray
         }
 
+        Rectangle
+        {
+            id: bg
+            anchors.fill: page
+            anchors.leftMargin: block_area.width
+            color: "white"
+            opacity: 0.2
+        }
+
+        AppText
+        {
+            color: Style.gray
+            font.pixelSize: parent.height / 14
+            text: "Loading..."
+            font.capitalization: Font.SmallCaps
+            anchors.centerIn: bg
+        }
+
         FadeState
         {
             x: 281
@@ -36,58 +54,82 @@ PageDefault
             Image {
                 source: "../../assets/ip/"+root.elementIcon+".png"
                 y: parent.inOutState * -100
+
+                MouseArea
+                {
+                    anchors.fill: parent
+                    onClicked:
+                    {
+                        root.reload = true
+                        reload_timer.start()
+                    }
+                }
+
+                Timer
+                {
+                    id: reload_timer
+                    interval: 200
+                    onTriggered: root.reload = false
+                }
             }
         }
 
-        AppText
+        Item
         {
-            anchors.fill: parent
-            anchors.leftMargin: 868
-            anchors.rightMargin: 260
-            anchors.topMargin: 100
-            anchors.bottomMargin: 100
-            font.pixelSize: 50
-            fontPrototype: Style.font_p_book
-            color: "black"
-            state: root.state
-            delay: 300
-            text: root.bodyText
+            id: page
+            width: 2000
+            height: 1280
+            anchors.centerIn: parent
+            anchors.horizontalCenterOffset: -block_area.width/2
+
+            clip: true
+
+            WebEngineView
+            {
+                id: webview
+                url: root.state === "SHOWING" && !root.reload ? root.website : ""
+                profile.offTheRecord: true
+
+                anchors.fill: parent
+
+                audioMuted: root.state === "HIDDEN"
+                zoomFactor: 2
+            }
+
+            MouseArea
+            {
+                id: block_area
+                height: parent.height
+                width: 400
+
+                Rectangle
+                {
+                    anchors.fill: parent
+                    color: Style.gray
+                }
+            }
         }
 
-        AppText
+        Rectangle
         {
-            anchors.fill: parent
-            anchors.leftMargin: 736
-            anchors.rightMargin: 1600
-            anchors.topMargin: 60
-            anchors.bottomMargin: 100
-            font.pixelSize: 50
-            fontPrototype: Style.font_p_book
+            anchors.fill: close_btn
+            anchors.margins: -2
             color: "black"
-            state: root.state
-            delay: 300
-            text: root.col1Text
-            wrapMode: Text.Wrap
-            lineHeight: 1.1
-            fontSizeMode: Text.Fit
+            radius: height/2
         }
 
-        AppText
-        {
-            anchors.fill: parent
-            anchors.leftMargin: 2311
-            anchors.rightMargin: 0
-            anchors.topMargin: 60
-            anchors.bottomMargin: 100
-            font.pixelSize: 50
-            fontPrototype: Style.font_p_book
-            color: "black"
-            state: root.state
-            delay: 300
-            text: root.col2Text
-            wrapMode: Text.Wrap
-            lineHeight: 1.1
-            fontSizeMode: Text.Fit
+        Image {
+            id: close_btn
+            source: "../../assets/close-button.png"
+            anchors.verticalCenter: page.top
+            anchors.horizontalCenter: page.right
+
+            MouseArea
+            {
+                anchors.fill: parent
+                anchors.margins: -parent.height/4
+                onClicked: root.homeClicked()
+            }
         }
     }
 }
