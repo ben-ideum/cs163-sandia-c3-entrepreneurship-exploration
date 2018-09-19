@@ -17,6 +17,9 @@ Window {
 
     color: "black"
 
+//    visibility: "Windowed"
+//    y: -30
+
     flags: Qt.FramelessWindowHint
 
     Connections
@@ -28,6 +31,7 @@ Window {
 
     Item
     {
+        id: root
         width: Style.resolution.x
         height: Style.resolution.y
         scale: parent.width/width
@@ -111,9 +115,9 @@ Window {
 //                } else if (num === 5) {
 //                    c3.launchWhiteboard()
 //                } else {
-                    transition.target = c3
-                    transition.targetNum = 1
-                    transition.start()
+                transition.target = c3
+                transition.targetNum = 1
+                transition.start()
 //                }
             }
 
@@ -216,6 +220,23 @@ Window {
                     }
                 }
             }
+        }
+
+        Timer
+        {
+            property real timeoutMinutes: 4.0
+
+            id: timeout
+
+            running: attract.state !== "SHOWING" && !GlobalSignals.videoPlaying
+            onTriggered: GlobalSignals.goHome()
+            interval: timeoutMinutes * 60 * 1000
+        }
+
+        MouseArea
+        {
+            anchors.fill: parent
+            onPressed: { if (timeout.running) { timeout.restart() }; mouse.accepted = false }
         }
     }
 

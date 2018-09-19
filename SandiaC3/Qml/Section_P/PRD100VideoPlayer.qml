@@ -60,9 +60,11 @@ FadeState {
             anchors.fill: parent
             fillMode: VideoOutput.PreserveAspectCrop
 
-            onPaused: root.paused = true
-            onStopped: root.paused = true
-            onPlaying: root.paused = false
+            onPaused: { root.paused = true; GlobalSignals.videoPlaying = false }
+            onStopped: { root.paused = true; GlobalSignals.videoPlaying = false }
+            onPlaying: { root.paused = false; GlobalSignals.videoPlaying = true }
+
+            onStatusChanged: if (status == MediaPlayer.EndOfMedia) { root.done() }
         }
 
         Rectangle

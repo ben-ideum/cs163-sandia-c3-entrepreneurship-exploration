@@ -21,6 +21,11 @@ FadeState {
         color: "black"
     }
 
+    MouseArea
+    {
+        anchors.fill: parent
+    }
+
     Rectangle
     {
         id: text_box

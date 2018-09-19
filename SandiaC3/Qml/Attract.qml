@@ -5,6 +5,8 @@ import "."
 
 FadeState {
 
+    readonly property real scaleUp: 1.025
+
     property int activeSection: -1
 
     readonly property var ufRemap: [0,2,5,3,4,1,3]
@@ -30,6 +32,8 @@ FadeState {
         id: partnerships_fade_b
         opacity: root.activeSection === -1 || root.activeSection === target ? 1.0 : 0.3
         Behavior on opacity { NumberAnimation { duration: 200 } }
+        scale: root.activeSection === target ? root.scaleUp : 1.0
+        Behavior on scale { NumberAnimation { duration: 200; easing.type: Easing.OutBack } }
     }
 
     FadeState
@@ -46,6 +50,8 @@ FadeState {
         id: c3_fade_b
         opacity: root.activeSection === -1 || root.activeSection === target ? 1.0 : 0.3
         Behavior on opacity { NumberAnimation { duration: 200 } }
+        scale: root.activeSection === target ? root.scaleUp : 1.0
+        Behavior on scale { NumberAnimation { duration: 200; easing.type: Easing.OutBack } }
     }
 
     FadeState
@@ -62,6 +68,8 @@ FadeState {
         id: map_fade_b
         opacity: root.activeSection === -1 || root.activeSection === target ? 1.0 : 0.3
         Behavior on opacity { NumberAnimation { duration: 200 } }
+        scale: root.activeSection === target ? root.scaleUp : 1.0
+        Behavior on scale { NumberAnimation { duration: 200; easing.type: Easing.OutBack } }
     }
 
     FadeState
@@ -78,6 +86,8 @@ FadeState {
         id: ip_fade_b
         opacity: root.activeSection === -1 || root.activeSection === target ? 1.0 : 0.3
         Behavior on opacity { NumberAnimation { duration: 200 } }
+        scale: root.activeSection === target ? root.scaleUp : 1.0
+        Behavior on scale { NumberAnimation { duration: 200; easing.type: Easing.OutBack } }
     }
 
     Image
@@ -123,6 +133,7 @@ FadeState {
                 {
                     section: "partnerships"
                     num: index+1
+                    scale: partnerships_fade_b.scale
 
                     onClicked: root.goPartnerships(index+1)
                 }
@@ -148,6 +159,7 @@ FadeState {
                 {
                     section: "partnerships"
                     num: index+5
+                    scale: partnerships_fade_b.scale
 
                     onClicked: root.goPartnerships(index+5)
                 }
@@ -171,6 +183,7 @@ FadeState {
 
                 AttractElement
                 {
+                    scale: c3_fade_b.scale
                     section: "c3"
                     num: index + 1
                     width: 209
@@ -198,6 +211,7 @@ FadeState {
                 {
                     section: "map"
                     num: index
+                    scale: map_fade_b.scale
                     onClicked: root.goMap(root.ufRemap[index])
                 }
             }
@@ -216,6 +230,7 @@ FadeState {
                 {
                     section: "map"
                     num: index + 4
+                    scale: map_fade_b.scale
                     onClicked: root.goMap(root.ufRemap[index+4])
                 }
             }
@@ -234,6 +249,7 @@ FadeState {
         {
             section: "ip"
             num: "1"
+            scale: ip_fade_b.scale
             onClicked: root.goIp(10) // lab experts
         }
 
@@ -247,6 +263,7 @@ FadeState {
                 section: "ip"
                 num: "2"
                 y: - (234 + 9)
+                scale: ip_fade_b.scale
                 onClicked: root.goIp(9) // visual patent search
             }
 
@@ -255,6 +272,7 @@ FadeState {
             {
                 section: "ip"
                 num: "3"
+                scale: ip_fade_b.scale
                 onClicked: root.goIp(0) // licensible tech
             }
         }
@@ -278,6 +296,7 @@ FadeState {
                 {
                     section: "patents"
                     num: index+1
+                    scale: ip_fade_b.scale
                     onClicked: root.goIp(index+1)
                 }
             }
@@ -285,6 +304,7 @@ FadeState {
     }
 
     property var keyLink: [partnerships_fade, partnerships_fade, c3_fade, ip_fade, map_fade, map_fade, ip_fade, ip_fade]
+
     property var keyLink2: [partnerships_fade_b, partnerships_fade_b, c3_fade_b, ip_fade_b, map_fade_b, map_fade_b, ip_fade_b, ip_fade_b]
 
     property var keySignals: [goPartnerships, goPartnerships, goC3, goIp, goMap, goMap, goIp, goIp]
@@ -308,6 +328,7 @@ FadeState {
                     width: 500
                     height: 78
                     opacity: Math.min(root.keyLink[index].opacity, root.keyLink2[index].opacity)
+                    scale: root.keyLink2[index].scale * 1.1
 
                     Image
                     {
@@ -342,6 +363,7 @@ FadeState {
                     width: 700
                     height: 78
                     opacity: Math.min(root.keyLink[index+4].opacity, root.keyLink2[index+4].opacity)
+                    scale: root.keyLink2[index+4].scale * 1.1
 
                     Image
                     {
