@@ -27,7 +27,7 @@ PageDefault
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.horizontalCenterOffset: parent.width/5
 
-            text: "Open to the public<br>Monday-Friday<br>9:00 a.m.- 4:00 p.m.<br>"
+            text: "Open to the public<br>Monday-Friday<br>9:00am - 4:00pm<br>"
         }
     }
 

@@ -17,16 +17,15 @@ Window {
 
     color: "black"
 
-//    visibility: "Windowed"
-//    y: -30
+    visibility: "FullScreen"
 
-    flags: Qt.FramelessWindowHint
+//    flags: Qt.FramelessWindowHint
 
     Connections
     {
         target: backend
 
-        onProcessDone: window.show()
+        onProcessDone: { window.showFullScreen() }
     }
 
     Item
@@ -210,7 +209,7 @@ Window {
                         opacity: 0.5
                         font.pixelSize: 50
                         fontSizeMode: Text.Fit
-                        text: "Sandia National Laboratories is a multimission laboratory managed and operated by National Technology and Engineering Solutions of Sandia, LLC., a wholly owned subsidiary of Honeywell International, Inc., for the U.S. Department of Energy's National Nuclear Security Agency."
+                        text: "Sandia National Laboratories is a multimission laboratory managed and operated by National Technology and Engineering Solutions of Sandia, LLC., a wholly owned subsidiary of Honeywell International, Inc., for the U.S. Department of Energy's National Nuclear Security Administration."
                     }
 
                     MouseArea
@@ -227,7 +226,6 @@ Window {
             property real timeoutMinutes: 4.0
 
             id: timeout
-
             running: attract.state !== "SHOWING" && !GlobalSignals.videoPlaying
             onTriggered: GlobalSignals.goHome()
             interval: timeoutMinutes * 60 * 1000

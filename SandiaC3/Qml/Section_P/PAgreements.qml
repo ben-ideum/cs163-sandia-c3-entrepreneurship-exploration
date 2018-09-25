@@ -1,4 +1,5 @@
 import QtQuick 2.0
+import QtWebEngine 1.5
 
 import "../General"
 import ".."
@@ -54,6 +55,13 @@ PageDefault
                 {
                     source: "../../assets/p/agreements-6.png"
                     y: -parent.inOutState * 100
+
+
+                    MouseArea
+                    {
+                        anchors.fill: parent
+                        onClicked: video_player.state = "SHOWING"
+                    }
                 }
             }
 
@@ -114,6 +122,90 @@ PageDefault
                 }
             }
         }
+
+        FadeState
+        {
+            id: video_player
+            anchors.fill: parent
+
+            Rectangle
+            {
+                anchors.fill: parent
+                color: "white"
+                opacity: 0.9
+            }
+
+            MouseArea
+            {
+                anchors.fill: parent
+                onClicked: video_player.state = "HIDDEN"
+            }
+
+            Rectangle
+            {
+                anchors.fill: video_frame
+                color: "black"
+                opacity: 0.3
+                anchors.margins: -10
+
+                AppText
+                {
+                    color: "black"
+                    font.pixelSize: parent.height / 14
+                    text: "Loading..."
+                    font.capitalization: Font.SmallCaps
+                    anchors.centerIn: parent
+                }
+            }
+
+            Item
+            {
+                id: video_frame
+                width: 1920
+                height: 1000
+
+                anchors.centerIn: parent
+
+                clip: true
+
+                WebEngineView
+                {
+                    url: video_player.state === "SHOWING" ? "https://www.youtube.com/embed/5pVjCJDAyhk" : ""
+                    profile.offTheRecord: true
+
+                    width: parent.width
+                    height: parent.height
+                    anchors.centerIn: parent
+
+                    audioMuted: video_player.state === "HIDDEN"
+                }
+            }
+
+
+            Rectangle
+            {
+                anchors.fill: close_btn
+                anchors.margins: -2
+                color: "black"
+                radius: height/2
+            }
+
+            Image {
+                id: close_btn
+                source: "../../assets/close-button.png"
+                anchors.verticalCenter: video_frame.top
+                anchors.horizontalCenter: video_frame.right
+
+                MouseArea
+                {
+                    anchors.fill: parent
+                    anchors.margins: -parent.height/4
+                    onClicked: video_player.state = "HIDDEN"
+                }
+            }
+        }
+
+        onHidden: video_player.state = "HIDDEN"
     }
 }
 

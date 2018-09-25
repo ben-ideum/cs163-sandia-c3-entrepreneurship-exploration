@@ -51,12 +51,12 @@ void BackendFunctions::dumpVisitorInfo(QString entry)
 
 void BackendFunctions::launchPresentation()
 {
-    m_process.start("\""+m_presentation_path+"\"");
+    m_process.start(m_presentation_path);
 }
 
 void BackendFunctions::launchWhiteboard()
 {
-    m_process.start("\""+m_whiteboard_path+"\"");
+    m_process.start(m_whiteboard_path);
 }
 
 QString BackendFunctions::loadPathFromFile(QString path)
